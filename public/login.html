@@ -1,0 +1,86 @@
+es (67 sloc)  2.34 KB
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign In</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700">
+	<link rel="stylesheet" href="main.css">
+	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+</head>
+<body>
+	<hgroup>
+  <h1>MusicV</h1>
+  <h3>By Valter Caldeira</h3>
+</hgroup>
+<form>
+  <div class="group">
+    <input type="text"><span class="highlight"></span><span class="bar"></span>
+    <label>Name</label>
+  </div>
+  <div class="group">
+    <input type="email"><span class="highlight"></span><span class="bar"></span>
+    <label>Email</label>
+  </div>
+  <button onclick="facebook()" type="button" class="button buttonBlue">Facebook
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button>
+</form>
+<footer><a href="http://www.polymer-project.org/" target="_blank"><img src="https://www.polymer-project.org/images/logos/p-logo.svg"></a>
+  <p>You Gotta Love <a href="http://www.polymer-project.org/" target="_blank">Google</a></p>
+</footer>  
+  
+
+	<script>
+
+	function facbeook(){
+		var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
+
+		var provider = new auth.provider.Facebook();
+		provider.setProviderScope("email");
+
+		auth.signInWithRedirect(provider);
+
+		auth.onSignIn(function(user) {
+		   alert('Signed-in ' + user.email);
+		});
+	}
+
+		$(window, document, undefined).ready(function() {
+
+	  $('input').blur(function() {
+	    var $this = $(this);
+	    if ($this.val())
+	      $this.addClass('used');
+	    else
+	      $this.removeClass('used');
+	  });
+
+  var $ripples = $('.ripples');
+
+  $ripples.on('click.Ripples', function(e) {
+
+    var $this = $(this);
+    var $offset = $this.parent().offset();
+    var $circle = $this.find('.ripplesCircle');
+
+    var x = e.pageX - $offset.left;
+    var y = e.pageY - $offset.top;
+
+    $circle.css({
+      top: y + 'px',
+      left: x + 'px'
+    });
+
+    $this.addClass('is-active');
+
+  });
+
+  $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+  	$(this).removeClass('is-active');
+  });
+
+});
+	</script>
+</body>
+</html>

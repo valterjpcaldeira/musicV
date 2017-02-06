@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>MusicV</title>
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+</head>
+<body>
+
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">MusicV</span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Add Songs</a>
+      <a onclick="loadTabLis();" href="#fixed-tab-2" class="mdl-layout__tab">Next Songs</a>
+      <a onclick="loadTabMusic();" href="#fixed-tab-3" class="mdl-layout__tab">Play</a>
+      <a onclick="loadTabHis();" href="#fixed-tab-4" class="mdl-layout__tab">History</a>
+      <a onclick="loadTabTop();" href="#fixed-tab-5" class="mdl-layout__tab">Top 10</a>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">MusicV</span>
+  </div>
+  <main class="mdl-layout__content">
+
+
+
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+      <div class="page-content">
+      	<div class="mdl-grid">
+		    <div class="mdl-layout-spacer"></div>
+		    <div class="mdl-cell mdl-cell--4-col">
+		    	
+
+		    	<form >
+			  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+			    <label class="mdl-button mdl-js-button mdl-button--icon" for="url">
+			      <i class="material-icons">search</i>
+			    </label>
+			    <div class="mdl-textfield__expandable-holder">
+			      <input id="url" class="mdl-textfield__input" type="text">
+			      <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+			    </div>
+			  </div>
+			  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+			  Procurar Video
+			</button>
+			</form>
+
+			<div id="spinner" class="mdl-spinner mdl-js-spinner" style="margin-left: 190px;width: 100px;height: 100px;margin-top: 55px;"></div>
+
+			<div class="demo-list-action mdl-list list"></div>
+
+			<h2 hidden class="Fipa">Alimenta-me, ama-me, nunca me abandones</h2>
+		
+			<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+			  <div class="mdl-snackbar__text"></div>
+			  <button class="mdl-snackbar__action" type="button"></button>
+			</div>
+
+		    </div>
+		    <div class="mdl-layout-spacer"></div>
+		</div>
+      </div>
+    </section>
+
+
+
+
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+      <div class="page-content">
+      	
+		<div class="demo-list-action mdl-list listSaved"></div>
+	
+
+      </div>
+    </section>
+
+
+    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+      <div class="page-content">
+      	<div class="mdl-grid">
+		    <div class="mdl-layout-spacer"></div>
+		    <div class="mdl-cell mdl-cell--4-col">
+
+		    	<div id="player"></div>
+
+
+		    </div>
+		  <div class="mdl-layout-spacer">
+		  	<div class="mdl-badge mdl-badge--overlap" data-badge="0" style="width: 40px;margin-top: 18px;">
+				<img class="likeMusic" playedDate="" likes="" id="" value="" urlThumbnill="" title="" description="" 
+				onclick="addLike(this)" class="likeButton" style="width: 38px;cursor:pointer;" 
+				src="http://musicv.wedeploy.io/like.png" border="0" alt="">
+			</div>
+		  </div>
+		</div>
+      </div>
+    </section>
+
+
+     <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+      <div class="page-content">
+      	
+		<div class="demo-list-action mdl-list listHistory"></div>
+		<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+			  <div class="mdl-snackbar__text"></div>
+			  <button class="mdl-snackbar__action" type="button"></button>
+			</div>
+
+      </div>
+    </section>
+
+    <section class="mdl-layout__tab-panel" id="fixed-tab-5">
+      <div class="page-content">
+      	
+		<div class="demo-list-action mdl-list listTop"></div>
+		<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+			  <div class="mdl-snackbar__text"></div>
+			  <button class="mdl-snackbar__action" type="button"></button>
+			</div>
+
+      </div>
+    </section>
+
+
+
+  </main>
+</div>
+	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+	<script src="index.js"></script>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<script src="list.js"></script>
+	<script src="music.js"></script>
+	<script src="history.js"></script>
+	<script src="top.js"></script>
+	<script src="http://www.youtube.com/player_api"></script>
+</body>
+</html>
