@@ -1,5 +1,4 @@
 var express = require('express');
-var WeDeploy = require('wedeploy');
 var morgan = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -85,17 +84,15 @@ app.get('/search/:tagId', function (req, res) {
 
 });
 
-app.get('/test/', function (req, res, next) {
+var WeDeploy = require('WeDeploy');
 
-	var data = WeDeploy.data('http://data.musicv.wedeploy.io');
-
-    data
-    .get('youtubeLinks')
-    .then(function(clientResponse) {
-    	console.log("----------------DATA----------------------");
-      	res.json(clientResponse);
-    }).catch(next);
-
+app.get('/foo', function(req, res) {
+  var data = WeDeploy.data('http://data.musicv.wedeploy.io');
+  data
+  .get('youtubeLinks')
+  .then(function(clientResponse) {
+    res.json(clientResponse);
+  });
 });
 
 
