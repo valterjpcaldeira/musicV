@@ -1,0 +1,172 @@
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	height: 100%;
+}
+
+body {
+	background: #0e141a;
+	font-family: 'Open Sans', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.container {
+	max-width: 360px;
+}
+
+h1 {
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0 0 20px;
+}
+
+.title {
+	font-size: 72px;
+	font-weight: 700;
+	color: #00d46a;
+	margin: 0;
+}
+
+.subtitle {
+	font-weight: 300;
+	color: rgba(255, 255, 255, 0.9);
+	margin: 0;
+}
+
+.logo {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+}
+
+label {
+	color: white;
+	display: block;
+	margin: 0 0 5px;
+	text-align: left;
+}
+
+input {
+	background: rgba(255, 255, 255, .2);
+	border-radius: 4px;
+	border: 0;
+	color: white;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 58px;
+	outline: none;
+	padding: 0 20px;
+	width: calc(100% - 40px);
+	margin: 0 0 10px;
+}
+
+button {
+	background: #00d46a;
+	border-radius: 4px;
+	border: 0;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 58px;
+	outline: none;
+	margin: 15px 0 0;
+	padding: 0 48px;
+	width: 100%;
+}
+
+a {
+	color: #00d46a;
+	text-decoration: none;
+	margin: 15px 0 0;
+	display: block;
+}
+
+.list {
+	color: rgba(255, 255, 255, .7);
+}
+
+.btn-container {
+	margin: 0 auto 74px;
+	width: 360px;
+}
+
+.btn-container .btn {
+	padding: 0;
+	height: 60px;
+	width: 176px;
+	border-radius: 4px;
+	border: 0px solid #fff;
+
+	margin: 0 10px;
+	float: left;
+	cursor: pointer;
+}
+
+.btn-container .btn:first-child {
+	margin: 0 4px 0 0;
+}
+
+.btn-container .btn:last-child {
+	margin: 0 0 0 4px;
+}
+
+.btn-container .btn span {
+	display: block;
+	float: left;
+}
+
+.btn-container .btn .label {
+	line-height: 60px;
+	color: #fff;
+	width: 122px;
+	font-size: 13px;
+}
+
+.btn-container .btn .brand {
+	width: 48px;
+	height: 60px;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-container .btn .brand .icon {
+	margin: 18px 12px;
+	width: 24px;
+	height: 24px;
+	display: block;
+}
+
+.btn-container .btn .brand .icon-github {
+	background: url('icon-github-white.png') no-repeat;
+	background-size: 24px 24px;
+}
+
+.btn-container .btn .brand .icon-google {
+	background: url('icon-google-white.png') no-repeat;
+	background-size: 24px 24px;
+}
+
+.btn-container .btn.btn-google {
+	background: #4285f4;
+}
+
+.btn-container .btn.btn-google:hover {
+	background: rgba(66,133,244, 0.8);
+}
+
+.btn-container .btn.btn-github {
+	background: rgba(255,255,255, 0.4);
+}
+
+.btn-container .btn.btn-github:hover {
+	background: rgba(255,255,255, 0.2);
+}

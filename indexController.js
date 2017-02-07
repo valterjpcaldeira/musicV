@@ -34,6 +34,9 @@ app.get('/music', function (req, res) {
 app.get('/main.css', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/main.css'));
 });
+app.get('/login.css', function (req, res) {
+	res.sendFile(path.join(__dirname + '/public/login.css'));
+});
 app.get('/logo.png', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/images/logo.png'));
 });

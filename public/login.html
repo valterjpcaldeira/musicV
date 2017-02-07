@@ -1,87 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <title>MusicV</title>
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700">
+  <link rel="stylesheet" href="login.css">
+  <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 </head>
 <body>
-	<hgroup>
-  <h1>MusicV</h1>
-  <h3>By Valter Caldeira</h3>
-</hgroup>
-<form>
-  <div class="group">
-    <input type="text"><span class="highlight"></span><span class="bar"></span>
-    <label>Name</label>
-  </div>
-  <div class="group">
-    <input type="email"><span class="highlight"></span><span class="bar"></span>
-    <label>Email</label>
-  </div>
-  <button onclick="facebook()" type="button" class="button buttonBlue">Facebook
-    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-  </button>
-</form>
-<footer><a href="http://www.polymer-project.org/" target="_blank"><img src="https://www.polymer-project.org/images/logos/p-logo.svg"></a>
-  <p>You Gotta Love <a href="http://www.polymer-project.org/" target="_blank">Google</a></p>
-</footer>  
-  
-<script src="jquery-3.1.1.min.js"></script>
-<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
-	<script>
+  <form name="signIn" class="container" onsubmit="signInWithEmailAndPassword(); return false;">
+    <div class="btn-container">
+      
+      <!--
+        To enable login with Github/Google setup the following environment variables inside auth/container.json:
+          WEDEPLOY_AUTH_GITHUB_CLIENT_ID, WEDEPLOY_AUTH_GITHUB_CLIENT_SECRET
+          WEDEPLOY_AUTH_GOOGLE_CLIENT_ID, WEDEPLOY_AUTH_GOOGLE_CLIENT_SECRET
+      -->
 
-	function facbeook(){
-		var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
+      <button class="btn btn-social btn-google" type="button" onclick="facbeook();">
+        <span class="brand">
+          <span class="icon icon-google"></span>
+        </span>
+        <span class="label">Login with Facebook</span>
+      </button>
+    </div>
 
-		var provider = new auth.provider.Facebook();
-		provider.setProviderScope("email");
+    <h1>Sign In</h1>
+    <input name="email" type="email" placeholder="Email" required>
+    <input name="password" type="password" placeholder="Password" required>
 
-		auth.signInWithRedirect(provider);
+    <button type="submit">Submit</button>
+    <a href="signup.html">Create an account</a>
+    <a href="reset-link.html">Did you forget your password?</a>
+  </form>
 
-		auth.onSignIn(function(user) {
-		   alert('Signed-in ' + user.email);
-		});
-	}
+  <img class="logo" src="logo.png" width="150" alt="WeDeploy">
 
-		$(window, document, undefined).ready(function() {
-
-	  $('input').blur(function() {
-	    var $this = $(this);
-	    if ($this.val())
-	      $this.addClass('used');
-	    else
-	      $this.removeClass('used');
-	  });
-
-  var $ripples = $('.ripples');
-
-  $ripples.on('click.Ripples', function(e) {
-
-    var $this = $(this);
-    var $offset = $this.parent().offset();
-    var $circle = $this.find('.ripplesCircle');
-
-    var x = e.pageX - $offset.left;
-    var y = e.pageY - $offset.top;
-
-    $circle.css({
-      top: y + 'px',
-      left: x + 'px'
+  <script>
+    var auth = WeDeploy.auth('auth.boilerplate-auth.wedeploy.io');
+    function signInWithEmailAndPassword() {
+      auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
+        .then(function() {
+          alert('Sign-in successfully.');
+          signIn.reset();
+        })
+        .catch(function() {
+          alert('Sign-in failed.');
+          signIn.reset();
+        });
+    }
+    function signInWithGithub() {
+      var githubProvider = new auth.provider.Github();
+      githubProvider.setProviderScope('user:email');
+      auth.signInWithRedirect(githubProvider);
+    }
+    function signInWithGoogle() {
+      var googleProvider = new auth.provider.Google();
+      googleProvider.setProviderScope('email');
+      auth.signInWithRedirect(googleProvider);
+    }
+    auth.onSignIn(function(user) {
+      alert('Signed-in ' + user.email);
     });
+      function facbeook(){
+    var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
 
-    $this.addClass('is-active');
+    var provider = new auth.provider.Facebook();
+    provider.setProviderScope("email");
 
-  });
+    auth.signInWithRedirect(provider);
 
-  $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
-  	$(this).removeClass('is-active');
-  });
-
-});
-	</script>
+    auth.onSignIn(function(user) {
+       alert('Signed-in ' + user.email);
+    });
+  }
+  </script>
 </body>
 </html>
