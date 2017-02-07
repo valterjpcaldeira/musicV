@@ -14,18 +14,12 @@ app.get('/login', function (req, res) {
 });
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
-app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
+//app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
 
 //private
 app.get('/', function (req, res) {
 	console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/public/index.html'));
-});
-app.get('/list', function (req, res) {
-	res.sendFile(path.join(__dirname + '/public/list.html'));
-});
-app.get('/music', function (req, res) {
-	res.sendFile(path.join(__dirname + '/public/music.html'));
 });
 app.get('/main.css', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/main.css'));
