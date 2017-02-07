@@ -18,16 +18,12 @@ app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/logi
 
 //private
 app.get('/', function (req, res) {
-	res.sendFile(path.join(__dirname + '/public/index.html'));
-});
-
-app.get('/', function (req, res) {
+	console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 app.get('/list', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/list.html'));
 });
-
 app.get('/music', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/music.html'));
 });
