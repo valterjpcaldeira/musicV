@@ -14,15 +14,7 @@ app.get('/login', function (req, res) {
 });
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
-var appPrivate = express();
-appPrivate.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
 
-//private
-appPrivate.get('/', function (req, res) {
-	console.log('User: ', res.locals.user);
-	res.sendFile(path.join(__dirname + '/public/index.html'));
-});
-appPrivate.listen(8080);
 
 app.get('/main.css', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/main.css'));
@@ -89,6 +81,13 @@ app.get('/foo', function(req, res) {
   });
 });
 
+app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
+
+//private
+app.get('/', function (req, res) {
+	console.log('User: ', res.locals.user);
+	res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 
 app.listen(80, function () {
   console.log('Listening on port 80');
