@@ -66,13 +66,11 @@
     var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
 
     var provider = new auth.provider.Facebook();
+    console.log(provider);
     provider.setProviderScope("email");
 
     auth.signInWithRedirect(provider);
 
-    auth.onSignIn(function(user) {
-       alert('Signed-in ' + user.email);
-    });
   }
   </script>
 </body>
