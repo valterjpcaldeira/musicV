@@ -31,6 +31,10 @@ app.get('/stop.png', function (req, res) {
 app.get('/like.png', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/images/like.png'));
 });
+app.get('/icon-google-white.png', function (req, res) {
+	res.sendFile(path.join(__dirname + '/public/images/facebook.png'));
+});
+
 
 app.get('/index.js', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/index.js'));

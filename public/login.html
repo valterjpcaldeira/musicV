@@ -8,7 +8,7 @@
   <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 </head>
 <body>
-  <form name="signIn" class="container" onsubmit="signInWithEmailAndPassword(); return false;">
+  <form name="signIn" class="container">
     <div class="btn-container">
       
       <!--
@@ -25,54 +25,23 @@
       </button>
     </div>
 
-    <h1>Sign In</h1>
-    <input name="email" type="email" placeholder="Email" required>
-    <input name="password" type="password" placeholder="Password" required>
-
-    <button type="submit">Submit</button>
-    <a href="signup.html">Create an account</a>
-    <a href="reset-link.html">Did you forget your password?</a>
   </form>
 
   <img class="logo" src="logo.png" width="150" alt="WeDeploy">
 
   <script>
     var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
-    function signInWithEmailAndPassword() {
-      auth.signInWithEmailAndPassword(signIn.email.value, signIn.password.value)
-        .then(function() {
-          alert('Sign-in successfully.');
-          signIn.reset();
-        })
-        .catch(function() {
-          alert('Sign-in failed.');
-          signIn.reset();
-        });
-    }
-    function signInWithGithub() {
-      var githubProvider = new auth.provider.Github();
-      githubProvider.setProviderScope('user:email');
-      auth.signInWithRedirect(githubProvider);
-    }
-    function signInWithGoogle() {
-      var googleProvider = new auth.provider.Google();
-      googleProvider.setProviderScope('email');
-      auth.signInWithRedirect(googleProvider);
-    }
-   
-      function facbeook(){
-    
 
-    var provider = new auth.provider.Facebook();
-    
-    provider.setProviderScope("email");
-    console.log(provider);
-    auth.signInWithRedirect(provider);
 
-  }
-   auth.onSignIn(function(user) {
-      alert('Signed-in ' + user.email);
-    });
+    function facbeook(){
+
+      var provider = new auth.provider.Facebook();
+      
+      provider.setProviderScope("email");
+      provider.redirectUri = "http://musicv.wedeploy.io/";
+      auth.signInWithRedirect(provider);
+    }
+
   </script>
 </body>
 </html>
