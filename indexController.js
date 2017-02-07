@@ -14,10 +14,11 @@ app.get('/login', function (req, res) {
 });
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
-//app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
+var appPrivate = express();
+appPrivate.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
 
 //private
-app.get('/', function (req, res) {
+appPrivate.get('/', function (req, res) {
 	console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
