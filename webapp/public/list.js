@@ -79,7 +79,7 @@ function appendTasks(tasks) {
                     		'</div>'+
                     		'<div class="mdl-cell mdl-cell--2-col">'+
                     			'<div class="mdl-badge mdl-badge--overlap" data-badge="'+task.likes+'" style="width: 40px;">'+
-							    	'<img  playedDate="'+task.playedDate+'" likes="'+task.likes+'" id="'+task.id+'" id="'+task.by+'" value="'+task.url+'" urlThumbnill="'+task.urlThumbnill+'" title="'+task.title+'" description="'+descp+'" onclick="addLike(this)" class="likeButton" style="width: 38px;cursor:pointer;" src="http://musicv.wedeploy.io/images/like.png" border="0" alt="">'+
+							    	'<img  playedDate="'+task.playedDate+'" likes="'+task.likes+'" id="'+task.id+'" by="'+task.by+'" value="'+task.url+'" urlThumbnill="'+task.urlThumbnill+'" title="'+task.title+'" description="'+descp+'" onclick="addLike(this)" class="likeButton" style="width: 38px;cursor:pointer;" src="http://musicv.wedeploy.io/images/like.png" border="0" alt="">'+
 							    '</div>'+
                     		'</div>'+
                     	'</div>'+

@@ -5,6 +5,7 @@ var currentLikes;
 var currentImage;
 var currentTitle;
 var currentDesc;
+var currentBy;
 function loadTabMusic(){
 
 	if(!player){
@@ -45,6 +46,7 @@ WeDeploy
 		 currentDesc = task.description;
 		var videoCode = task.url;
 		currentId = task.id;
+		currentBy = task.by;
 
 		$(".likeMusic").parent().attr("data-badge", currentLikes);
 		$(".likeMusic").attr("playedDate", task.playedDate);
@@ -53,6 +55,7 @@ WeDeploy
 		$(".likeMusic").attr("title", currentTitle);
 		$(".likeMusic").attr("urlThumbnill", currentImage);
 		$(".likeMusic").attr("likes", currentLikes);
+		$(".likeMusic").attr("by", currentBy);
 
 
 		player.loadVideoById(videoCode);
@@ -71,6 +74,8 @@ function appendVideo(tasks) {
 		 currentDesc = task.description;
 		var videoCode = task.url;
 		currentId = task.id;
+		currentBy = task.by;
+
 
 		$(".likeMusic").parent().attr("data-badge", currentLikes);
 		$(".likeMusic").attr("playedDate", task.playedDate);
@@ -79,6 +84,7 @@ function appendVideo(tasks) {
 		$(".likeMusic").attr("title", currentTitle);
 		$(".likeMusic").attr("urlThumbnill", currentImage);
 		$(".likeMusic").attr("likes", currentLikes);
+		$(".likeMusic").attr("by", currentBy);
 
 		player = new YT.Player('player', {
           height: '390',
@@ -121,6 +127,7 @@ function appendVideo(tasks) {
 							 description: currentDesc,
 							 state: 0,
 							 likes: currentLikes,
+							 by: currentBy,
 							 playedDate: hr+':'+min,
 							 title: currentTitle}).then(function(movie) {
 			  playNext();
