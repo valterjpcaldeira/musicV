@@ -21,18 +21,6 @@ app.use(favicon(__dirname + '/public/images/like.ico'));
 
 /////////PUBLIC
 
-//FOO
-app.get('/foo', function(req, res, next) {
-  var data = WeDeploy.data('http://data.music.wedeploy.io');
-  data
-  .get('youtubeLinks')
-  .then(function(clientResponse) {
-    res.sendFile(path.join(__dirname + '/public/login.html'));
-  }).catch((err) => {
-    res.sendFile(path.join(__dirname + '/public/login.html'));
-  });
-});
-
 //LOGIN
 app.get('/login', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/login.html'));
@@ -61,28 +49,8 @@ app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/logi
 
 /////////////////PRIVATE
 app.get('/', function (req, res) {
-	res.sendFile(path.join(__dirname + '/public/index.html'));
+	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
-
-
-//JSON
-app.set('json spaces', 40);
-
-app.get('/foo2', function(req, res, next) {
-	WeDeploy.data('http://data.musicv.wedeploy.io')
-  .where('state', '=', 0)
-  .orderBy('id', 'desc')
-  .limit(1)
-  .get('youtubeLinks')
-	.then(function(response) {
-		res.json(response);
-	})
-	.catch(function(error) {
-		res.json(error);
-	});
-
-});
-
 
 
 //LISTEN
