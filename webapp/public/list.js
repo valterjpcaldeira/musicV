@@ -48,7 +48,7 @@ function appendTasks(tasks) {
 
     var by = task.by;
     if(by){
-      by = title.substring(0, 34);
+      by = by.substring(0, 34);
     } else{
       by = "Anonimus";
     }
