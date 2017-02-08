@@ -44,7 +44,6 @@ app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/logi
 
 //PRIVATE
 app.get('/', function (req, res) {
-	console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
