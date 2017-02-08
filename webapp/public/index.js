@@ -1,4 +1,4 @@
-var form = document.querySelector('form');
+var form = document.querySelector('#form');
 var list = document.querySelector('.list');
 
 var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
@@ -51,7 +51,7 @@ function addThis(elm){
 							 description: $(elm).attr('description'),
 							 state: 1,
 							 likes: 0,
-							 by:$("#userName").val(),
+							 by: $("#userName").val(),
 							 title: $(elm).attr('title')})
 		.then(function(response) {
 			stopLoading();
