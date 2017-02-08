@@ -32,7 +32,19 @@ function appendTasks(tasks) {
 	tasks.forEach(function(task) {
 		var videoCode = task.url;
 
-		var descp = task.description;
+    var descp = task.description;
+    if(descp){
+      descp = descp.substring(0, 34);
+    } else{
+      descp = "";
+    }
+
+    var title = task.title;
+    if(title){
+      title = title.substring(0, 34);
+    } else{
+      title = "";
+    }
 
 
 		taskList +=  '<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">'+
@@ -40,10 +52,10 @@ function appendTasks(tasks) {
                     	'<img class="article-image" src="'+task.urlThumbnill+'" border="0" alt="">'+
                     '</div>'+
                     '<div class="mdl-card__title">'+
-                        '<h2 class="mdl-card__title-text">'+task.title.substring(0, 34)+'</h2>'+
+                        '<h2 class="mdl-card__title-text">'+title+'</h2>'+
                     '</div>'+
                     '<div class="mdl-card__supporting-text">'+
-                        descp.substring(0, 34)+
+                        descp+
                     '</div>'+
                     '<div class="mdl-card__actions mdl-card--border">'+
                     	'<div class="mdl-grid">'+
