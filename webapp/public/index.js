@@ -5,6 +5,7 @@ var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
 
 if (currentUser) {
    console.log(currentUser);
+   
 } else {
     alert("not logged in");
 }
