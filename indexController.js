@@ -6,6 +6,16 @@ var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
 var app = express();
 
+
+app.get('/foo', function(req, res) {
+  var data = WeDeploy.data('http://data.musicv.wedeploy.io');
+  data
+  .get('youtubeLinks')
+  .then(function(clientResponse) {
+    res.json(clientResponse);
+  });
+});
+
 app.use(morgan('combined'));
 
 //public
