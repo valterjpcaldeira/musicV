@@ -55,16 +55,7 @@ app.get('/top.js', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/top.js'));
 });
 
-app.get('/foo', function(req, res) {
-  var data = WeDeploy.data('http://data.musicv.wedeploy.io');
-  data
-  .get('youtubeLinks')
-  .then(function(clientResponse) {
-    res.json(clientResponse);
-  });
-});
-
-app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
+//app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
 
 //private
 app.get('/', function (req, res) {
@@ -94,29 +85,9 @@ app.get('/search/:tagId', function (req, res) {
 });
 
 
-
-
-
 app.listen(80, function () {
   console.log('Listening on port 80');
 });
 
-
-
-var express = require('express');
-var WeDeploy = require('wedeploy');
-
-var app2 = express();
-
-app2.get('/foo', function(req, res) {
-  var data = WeDeploy.data('http://data.musicv.wedeploy.io');
-  data
-  .get('youtubeLinks')
-  .then(function(clientResponse) {
-    res.json(clientResponse);
-  });
-});
-
-app2.listen(8080);
 
 
