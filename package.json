@@ -12,6 +12,6 @@
     "youtube-node": "^1.3.0",
     "serve-favicon" : "^2.3.2",
     "wedeploy-middleware" : "^0.0.3",
-    "WeDeploy" : "^1.3.2"
+    "wedeploy" : "^1.3.2"
   }
 }

@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
 var wedeployMiddleware = require('wedeploy-middleware');
-var WeDeploy = require('WeDeploy');
+var WeDeploy = require('wedeploy');
 var app = express();
 
 app.use(morgan('combined'));
@@ -104,7 +104,7 @@ app.listen(80, function () {
 
 
 var express = require('express');
-var WeDeploy = require('WeDeploy');
+var WeDeploy = require('wedeploy');
 
 var app2 = express();
 
