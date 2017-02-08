@@ -17,7 +17,17 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
-
+//FOO
+app.get('/foo', function(req, res, next) {
+  var data = WeDeploy.data('http://data.music.wedeploy.io');
+  data
+  .get('youtubeLinks')
+  .then(function(clientResponse) {
+    res.sendFile(path.join(__dirname + '/public/login.html'));
+  }).catch((err) => {
+    res.sendFile(path.join(__dirname + '/public/login.html'));
+  });
+});
 
 //PUBLIC
 
@@ -41,17 +51,7 @@ app.get('/', function (req, res) {
 
 //JSON
 app.set('json spaces', 40);
-//FOO
-app.get('/foo', function(req, res, next) {
-  var data = WeDeploy.data('http://data.music.wedeploy.io');
-  data
-  .get('youtubeLinks')
-  .then(function(clientResponse) {
-    res.json(clientResponse);
-  }).catch((err) => {
-    res.json(err);
-  });
-});
+
 //youtube Service
 app.get('/search/:tagId', function (req, res) {
 	var YouTube = require('youtube-node');
