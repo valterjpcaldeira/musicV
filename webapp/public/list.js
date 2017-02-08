@@ -53,10 +53,16 @@ function appendTasks(tasks) {
       by = "Anonimus";
     }
 
+    var letter = by.substring(0,1);
+
 
 		taskList +=  '<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">'+
                     '<div class="mdl-card__media">'+
                     	'<img class="article-image" src="'+task.urlThumbnill+'" border="0" alt="">'+
+                      '<span class="mdl-chip mdl-chip--contact">'+
+                        '<span id="userNameAbrev" class="mdl-chip__contact mdl-color--teal mdl-color-text--white">'+letter+'</span>'+
+                        '<span id="userName" class="mdl-chip__text">'+by+'</span>'+
+                    '</span>'+
                     '</div>'+
                     '<div class="mdl-card__title">'+
                         '<h2 class="mdl-card__title-text">'+title+'</h2>'+
@@ -73,7 +79,7 @@ function appendTasks(tasks) {
                     		'</div>'+
                     		'<div class="mdl-cell mdl-cell--2-col">'+
                     			'<div class="mdl-badge mdl-badge--overlap" data-badge="'+task.likes+'" style="width: 40px;">'+
-							    	'<img  playedDate="'+task.playedDate+'" likes="'+task.likes+'" id="'+task.id+'" value="'+task.url+'" urlThumbnill="'+task.urlThumbnill+'" title="'+task.title+'" description="'+descp+'" onclick="addLike(this)" class="likeButton" style="width: 38px;cursor:pointer;" src="http://musicv.wedeploy.io/images/like.png" border="0" alt="">'+
+							    	'<img  playedDate="'+task.playedDate+'" likes="'+task.likes+'" id="'+task.id+'" id="'+task.by+'" value="'+task.url+'" urlThumbnill="'+task.urlThumbnill+'" title="'+task.title+'" description="'+descp+'" onclick="addLike(this)" class="likeButton" style="width: 38px;cursor:pointer;" src="http://musicv.wedeploy.io/images/like.png" border="0" alt="">'+
 							    '</div>'+
                     		'</div>'+
                     	'</div>'+
@@ -94,6 +100,7 @@ function addLike(elm){
 	            data.update('youtubeLinks/'+$(elm).attr('id'), {url: $(elm).attr('value'),
 							 urlThumbnill: $(elm).attr('urlThumbnill'),
 							 description: $(elm).attr('description'),
+               by: $(elm).attr('by'),
 							 state: 1,
 							 likes: Number($(elm).attr('likes'))+1,
 							 playedDate: $(elm).attr('playedDate'),
