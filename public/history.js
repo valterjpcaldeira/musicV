@@ -41,6 +41,13 @@ function appendHis(tasks) {
 		} else{
 			descp = "";
 		}
+
+		var title = task.title;
+		if(title){
+			title = title.substring(0, 34);
+		} else{
+			title = "";
+		}
 		
 
 
@@ -52,7 +59,7 @@ function appendHis(tasks) {
                     	'</div>'+
                     '</div>'+
                     '<div class="mdl-card__title">'+
-                        '<h2 class="mdl-card__title-text">'+task.title.substring(0, 34)+'</h2>'+
+                        '<h2 class="mdl-card__title-text">'+title+'</h2>'+
                     '</div>'+
                     '<div class="mdl-card__supporting-text">'+
                         descp+
