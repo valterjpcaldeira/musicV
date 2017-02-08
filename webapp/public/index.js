@@ -1,6 +1,14 @@
 var form = document.querySelector('form');
 var list = document.querySelector('.list');
 
+var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
+
+if (currentUser) {
+   alert(currentUser);
+} else {
+    alert("not logged in");
+}
+
 form.addEventListener('submit', function(e) { 
   e.preventDefault(); 
   	list.innerHTML = "";

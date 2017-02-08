@@ -17,6 +17,11 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
+app.use(favicon(__dirname + '/public/images/like.ico'));
+
+
+/////////PUBLIC
+
 //FOO
 app.get('/foo', function(req, res, next) {
   var data = WeDeploy.data('http://data.music.wedeploy.io');
@@ -29,16 +34,10 @@ app.get('/foo', function(req, res, next) {
   });
 });
 
-
-//PUBLIC
-
-
-
+//LOGIN
 app.get('/login', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/login.html'));
 });
-
-app.use(favicon(__dirname + '/public/images/like.ico'));
 
 
 app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
@@ -67,8 +66,6 @@ app.get('/foo2', function(req, res, next) {
 	});
 
 });
-
-
 
 //youtube Service
 app.get('/search/:tagId', function (req, res) {
