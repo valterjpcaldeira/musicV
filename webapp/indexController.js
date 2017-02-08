@@ -41,7 +41,7 @@ app.get('/login', function (req, res) {
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
 
-//app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
+app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
 
 //PRIVATE
 app.get('/', function (req, res) {
