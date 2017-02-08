@@ -36,9 +36,12 @@ function appendHis(tasks) {
 		var videoCode = task.url;
 
 		var descp = task.description;
-		while(descp.length < 80){
-        	descp += '&nbsp;';
-    	}    
+		if(descp){
+			descp = descp.substring(0, 34);
+		} else{
+			descp = "";
+		}
+		
 
 
 		taskList +=  '<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">'+
@@ -52,7 +55,7 @@ function appendHis(tasks) {
                         '<h2 class="mdl-card__title-text">'+task.title.substring(0, 34)+'</h2>'+
                     '</div>'+
                     '<div class="mdl-card__supporting-text">'+
-                        descp.substring(0, 34)+
+                        descp+
                     '</div>'+
                     '<div class="mdl-card__actions mdl-card--border">'+
 					    '<a href="https://www.youtube.com/watch?v='+task.url+'" target="_blank" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">'+

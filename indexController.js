@@ -16,7 +16,7 @@ app.get('/foo', function(req, res) {
   });
 });
 
-//app.use(morgan('combined'));
+app.use(morgan('combined'));
 
 //public
 app.get('/login', function (req, res) {
