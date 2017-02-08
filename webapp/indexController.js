@@ -9,7 +9,7 @@ var app = express();
 //Static files
 app.use(express.static('public'));
 
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 
 //ERROR HANdler
 app.use(function (err, req, res, next) {
@@ -22,9 +22,8 @@ app.use(function (err, req, res, next) {
 //PUBLIC
 
 //FOO
-app.get('/foo', function(req, res) {
-  var data = WeDeploy.data('http://data.musicv.wedeploy.io');
-
+app.get('/foo', function(req, res, next) {
+  var data = WeDeploy.data('http://data.music.wedeploy.io');
   data
   .get('youtubeLinks')
   .then(function(clientResponse) {
@@ -32,7 +31,6 @@ app.get('/foo', function(req, res) {
   }).catch((err) => {
     res.json(err);
   });
-
 });
 
 app.get('/login', function (req, res) {
