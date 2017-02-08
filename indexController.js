@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
 var wedeployMiddleware = require('wedeploy-middleware');
-var WeDeploy = require('wedeploy');
+var WeDeploy = require('WeDeploy');
 var app = express();
 
 app.use(morgan('combined'));
@@ -103,6 +103,20 @@ app.listen(80, function () {
 
 
 
+var express = require('express');
+var WeDeploy = require('WeDeploy');
 
+var app2 = express();
+
+app2.get('/foo', function(req, res) {
+  var data = WeDeploy.data('http://data.musicv.wedeploy.io');
+  data
+  .get('youtubeLinks')
+  .then(function(clientResponse) {
+    res.json(clientResponse);
+  });
+});
+
+app2.listen(8080);
 
 
