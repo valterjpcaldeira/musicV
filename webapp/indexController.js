@@ -9,7 +9,7 @@ var app = express();
 //Static files
 app.use(express.static('public'));
 
-//app.use(morgan('combined'));
+app.use(morgan('combined'));
 
 //ERROR HANdler
 app.use(function (err, req, res, next) {
