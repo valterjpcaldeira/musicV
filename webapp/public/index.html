@@ -29,7 +29,7 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">MusicV</span>
+    <div class="material-icons mdl-badge mdl-badge--overlap" id="userName" data-badge="Valter Caldeira">account_box</div>
   </div>
   <main class="mdl-layout__content">
 
@@ -40,22 +40,16 @@
       	<div class="mdl-grid">
 		    <div class="mdl-layout-spacer"></div>
 		    <div class="mdl-cell mdl-cell--4-col">
-		    	
+		    	<form action="#">
+				  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				    <input id="url" class="mdl-textfield__input" type="text" id="sample3">
+				    <label class="mdl-textfield__label" for="sample3">Video Title...</label>
+				  </div>
+				  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+			   		Submit
+				  </button>
+				</form>
 
-		    	<form >
-			  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-			    <label class="mdl-button mdl-js-button mdl-button--icon" for="url">
-			      <i class="material-icons">search</i>
-			    </label>
-			    <div class="mdl-textfield__expandable-holder">
-			      <input id="url" class="mdl-textfield__input" type="text">
-			      <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-			    </div>
-			  </div>
-			  <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-			  Procurar Video
-			</button>
-			</form>
 
 			<div id="spinner" class="mdl-spinner mdl-js-spinner" style="margin-left: 190px;width: 100px;height: 100px;margin-top: 55px;"></div>
 
@@ -101,7 +95,7 @@
 		  	<div class="mdl-badge mdl-badge--overlap" data-badge="0" style="width: 40px;margin-top: 18px;">
 				<img class="likeMusic" playedDate="" likes="" id="" value="" urlThumbnill="" title="" description="" 
 				onclick="addLike(this)" class="likeButton" style="width: 38px;cursor:pointer;" 
-				src="http://musicv.wedeploy.io/like.png" border="0" alt="">
+				src="http://musicv.wedeploy.io/images/like.png" border="0" alt="">
 			</div>
 		  </div>
 		</div>

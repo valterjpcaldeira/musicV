@@ -4,10 +4,9 @@ var list = document.querySelector('.list');
 var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
 
 if (currentUser) {
-   console.log(currentUser);
-   
+   $("#userName").val(currentUser.name);
 } else {
-    alert("not logged in");
+	console.log("not logged in");
 }
 
 form.addEventListener('submit', function(e) { 
@@ -52,6 +51,7 @@ function addThis(elm){
 							 description: $(elm).attr('description'),
 							 state: 1,
 							 likes: 0,
+							 by:$("#userName").val(),
 							 title: $(elm).attr('title')})
 		.then(function(response) {
 			stopLoading();

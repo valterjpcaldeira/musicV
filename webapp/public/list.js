@@ -36,14 +36,21 @@ function appendTasks(tasks) {
     if(descp){
       descp = descp.substring(0, 34);
     } else{
-      descp = "";
+      descp = "No Description";
     }
 
     var title = task.title;
     if(title){
       title = title.substring(0, 34);
     } else{
-      title = "";
+      title = "No Title";
+    }
+
+    var by = task.by;
+    if(by){
+      by = title.substring(0, 34);
+    } else{
+      by = "Anonimus";
     }
 
 
