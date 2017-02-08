@@ -29,6 +29,7 @@ app.get('/foo', function(req, res, next) {
   });
 });
 
+
 //PUBLIC
 
 
@@ -51,6 +52,23 @@ app.get('/', function (req, res) {
 
 //JSON
 app.set('json spaces', 40);
+
+app.get('/foo2', function(req, res, next) {
+	WeDeploy.data('http://data.musicv.wedeploy.io')
+  .where('state', '=', 0)
+  .orderBy('id', 'desc')
+  .limit(1)
+  .get('youtubeLinks')
+	.then(function(response) {
+		res.json(response);
+	})
+	.catch(function(error) {
+		res.json(error);
+	});
+
+});
+
+
 
 //youtube Service
 app.get('/search/:tagId', function (req, res) {
