@@ -13,8 +13,7 @@ app.use(morgan('combined'));
 
 //ERROR HANdler
 app.use(function (err, req, res, next) {
-  console.error(err.stack)
-  res.status(500).send('Something broke!')
+  res.status(500).send('Something broke!');
 });
 
 app.use(favicon(__dirname + '/public/images/like.ico'));
@@ -76,7 +75,6 @@ app.get('/search/:tagId', function (req, res) {
 
 	youTube.search(req.params.tagId, 15, function(error, result) {
 	  if (error) {
-	    console.log(error);
 	  }
 	  else {
 	   res.json(result);
@@ -87,7 +85,7 @@ app.get('/search/:tagId', function (req, res) {
 
 //LISTEN
 app.listen(80, function () {
-  console.log('Listening on port 80');
+
 });
 
 

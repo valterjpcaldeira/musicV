@@ -4,7 +4,7 @@ var list = document.querySelector('.list');
 var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
 
 if (currentUser) {
-   alert(currentUser);
+   console.log(currentUser);
 } else {
     alert("not logged in");
 }
