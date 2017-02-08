@@ -4,7 +4,9 @@ var list = document.querySelector('.list');
 var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
 
 if (currentUser) {
-   $("#userName").val(currentUser.name);
+	var firsLetter = currentUser.name.substring(0,1);
+   $("#userNameAbrev").text(firsLetter);
+   $("#userName").text(currentUser.name);
 } else {
 	console.log("not logged in");
 }
@@ -51,7 +53,7 @@ function addThis(elm){
 							 description: $(elm).attr('description'),
 							 state: 1,
 							 likes: 0,
-							 by: $("#userName").val(),
+							 by: $("#userName").text(),
 							 title: $(elm).attr('title')})
 		.then(function(response) {
 			stopLoading();
