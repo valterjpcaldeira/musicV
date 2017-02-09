@@ -51,6 +51,17 @@ app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
 
+var express = require('express');
+var wedeployMiddleware = require('wedeploy-middleware');
+
+var app = express();
+app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io'}));
+
+app.get('/private', function(req, res) {
+  // User that has been signed in
+  console.log('User: ', res.locals.user);
+});
+
 
 //LISTEN
 app.listen(80, function () {
