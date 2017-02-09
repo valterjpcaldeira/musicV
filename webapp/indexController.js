@@ -45,7 +45,7 @@ app.get('/search/:tagId', function (req, res) {
 });
 
 
-app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
+app.use(wedeployMiddleware.auth({url: 'auth.musicvv.wedeploy.io',redirect: '/login'}));
 
 /////////////////PRIVATE
 app.get('/', function (req, res) {
