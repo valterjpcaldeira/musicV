@@ -12,9 +12,10 @@ app.use(express.static('public'));
 app.use(morgan('combined'));
 
 //ERROR HANdler
-app.use(function (err, req, res, next) {
-  res.status(500).send('Something broke!');
-});
+function errorHandler (err, req, res, next) {
+  res.status(500)
+  res.render('error', { error: err })
+}
 
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
@@ -46,7 +47,12 @@ app.get('/search/:tagId', function (req, res) {
 
 /////////////////PRIVATE
 app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
-app.get('/', function (req, res) {
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+
+app.get('/', function (req, res, next) {
 	console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
