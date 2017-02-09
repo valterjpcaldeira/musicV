@@ -1,5 +1,6 @@
 {
 	"id": "auth",
+	"name": "auth",
 	"type": "wedeploy/auth",
 	"env": {
 		"WEDEPLOY_AUTH_FACEBOOK": "true",
