@@ -44,11 +44,10 @@ app.get('/search/:tagId', function (req, res) {
 
 });
 
-
-app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
-
 /////////////////PRIVATE
+app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
 app.get('/', function (req, res) {
+	console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
 
