@@ -49,16 +49,8 @@ app.get('/search/:tagId', function (req, res) {
 app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io',redirect: '/login'}));
 
 app.get('/', function (req, res, next) {
-	console.log('--------AAAAAAAAAAAAAAAAAA-----');
-	try {
-            console.log('User: ', res.locals.user);
+    console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
-        } catch (e) {
-
-        	console.log('-------------');
-    
-        }
-	
 });
 
 
