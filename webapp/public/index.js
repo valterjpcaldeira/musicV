@@ -10,6 +10,8 @@ if (currentUser) {
    $("#userName").text(currentUser.name);
 } else {
 	console.log("not logged in");
+   $("#userNameAbrev").text("A");
+   $("#userName").text("Anonimus");
 	//window.location.replace("http://musicv.wedeploy.io/login");
 }
 
