@@ -4,6 +4,7 @@ var list = document.querySelector('.list');
 var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
 
 if (currentUser) {
+	console.log(currentUser);
 	var firsLetter = currentUser.name.substring(0,1);
    $("#userNameAbrev").text(firsLetter);
    $("#userName").text(currentUser.name);
