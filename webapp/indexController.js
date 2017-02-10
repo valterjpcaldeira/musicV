@@ -8,6 +8,7 @@ var app = express();
 
 //Static files
 app.use(express.static('public'));
+app.use(express.static('private'));
 
 app.use(morgan('combined'));
 
