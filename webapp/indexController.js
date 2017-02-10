@@ -12,7 +12,6 @@ app.use(express.static('public'));
 app.use(morgan('combined'));
 
 //ERROR HANdler
-app.use(app.router);
 //express error handler (never called)
 app.use(function(err, req, res, next) {
     console.log(err);
