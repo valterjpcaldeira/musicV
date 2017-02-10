@@ -12,10 +12,12 @@ app.use(express.static('public'));
 app.use(morgan('combined'));
 
 //ERROR HANdler
-function errorHandler (err, req, res, next) {
-  res.status(500)
-  res.render('error', { error: err })
-}
+app.use(app.router);
+//express error handler (never called)
+app.use(function(err, req, res, next) {
+    console.log(err);
+    res.send(500);
+});
 
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
