@@ -19,6 +19,9 @@
           <button onclick="facbeook();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             Facebook Login
           </button>
+          <button onclick="google();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Google Login
+          </button>
 
 
         </div>
@@ -38,6 +41,13 @@
       provider.setProviderScope("email");
       provider.redirectUri = "http://musicv.wedeploy.io/";
       auth.signInWithRedirect(provider);
+    }
+
+    function google(){
+      var googleProvider = new auth.provider.Google();
+      googleProvider.setProviderScope('email');
+      googleProvider.redirectUri = "http://musicv.wedeploy.io/";
+      auth.signInWithRedirect(googleProvider);
     }
 
   </script>
