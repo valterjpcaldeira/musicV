@@ -39,14 +39,14 @@
       var provider = new auth.provider.Facebook();
       
       provider.setProviderScope("email");
-      provider.redirectUri = "http://auth.musicv.wedeploy.io/";
+      provider.redirectUri = "http://musicv.wedeploy.io/";
       auth.signInWithRedirect(provider);
     }
 
     function google(){
       var googleProvider = new auth.provider.Google();
       googleProvider.setProviderScope('email');
-      googleProvider.redirectUri = "http://auth.musicv.wedeploy.io/";
+      googleProvider.redirectUri = "http://musicv.wedeploy.io/";
       auth.signInWithRedirect(googleProvider);
     }
 
