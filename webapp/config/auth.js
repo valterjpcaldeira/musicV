@@ -3,7 +3,7 @@ module.exports = {
     'facebookAuth' : {
         'clientID'      : '1209604419094908', // your App ID
         'clientSecret'  : 'a050fed61c6d66ddb7e47a87321b816b', // your App Secret
-        'callbackURL'   : 'http://localhost:8080/auth/facebook/callback'
+        'callbackURL'   : 'http://musicv.wedeploy.io/auth/facebook/callback'
     },
 
     'twitterAuth' : {
