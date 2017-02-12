@@ -4,24 +4,12 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
-var passport = require('passport');
-var flash    = require('connect-flash');
+//var passport = require('passport');
+//var flash    = require('connect-flash');
 var app = express();
 
 //CONFIG
-require('./config/passport')(passport); // pass passport for configuration
-
-
-
-	// set up our express application
-	//app.use(express.logger('dev')); // log every request to the console
-	//app.use(express.cookieParser()); // read cookies (needed for auth)
-
-	// required for passport
-	//app.use(express.session({ secret: 'ilovewedeploywedeploywedeploy' })); // session secret
-	//app.use(passport.initialize());
-	//app.use(passport.session()); // persistent login sessions
-	//app.use(flash()); // use connect-flash for flash messages stored in session
+//require('./config/passport')(passport); // pass passport for configuration
 
 	app.use(function(err, req, res, next) {
 	    console.log(err);
