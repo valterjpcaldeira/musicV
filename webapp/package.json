@@ -12,6 +12,13 @@
     "youtube-node": "^1.3.0",
     "serve-favicon" : "^2.3.2",
     "wedeploy-middleware" : "^0.0.3",
-    "wedeploy" : "^1.3.2"
+    "wedeploy" : "^1.3.2",
+    "yarn" : "^0.19.1",
+    "ejs" : "~0.8.5",             
+    "passport" : "~0.1.17",     
+    "passport-local" : "~0.1.6",  
+    "passport-facebook" : "~1.0.2", 
+    "passport-twitter" : "~1.0.2",  
+    "passport-google-oauth" : "~0.1.5"
   }
 }
