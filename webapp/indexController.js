@@ -15,7 +15,7 @@ require('./config/passport')(passport); // pass passport for configuration
 
 	// set up our express application
 	//app.use(express.logger('dev')); // log every request to the console
-	app.use(express.cookieParser()); // read cookies (needed for auth)
+	//app.use(express.cookieParser()); // read cookies (needed for auth)
 
 	// required for passport
 	app.use(express.session({ secret: 'ilovewedeploywedeploywedeploy' })); // session secret
