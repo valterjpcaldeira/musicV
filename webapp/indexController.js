@@ -11,7 +11,7 @@ var app = express();
 //CONFIG
 require('./config/passport')(passport); // pass passport for configuration
 
-app.configure(function() {
+
 
 	// set up our express application
 	app.use(express.logger('dev')); // log every request to the console
@@ -30,7 +30,6 @@ app.configure(function() {
 
 	app.use(favicon(__dirname + '/public/images/like.ico'));
 
-});
 
 
 //app.use(morgan('combined'));
