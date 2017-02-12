@@ -41,7 +41,7 @@ module.exports = function(passport) {
         // asynchronous
         process.nextTick(function() {
 
-            return done(null, null);
+            return done(null, profile);
         });
 
     }));
