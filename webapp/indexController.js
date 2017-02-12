@@ -4,27 +4,15 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
-//var passport = require('passport');
-//var flash    = require('connect-flash');
 var app = express();
 
 //CONFIG
-//require('./config/passport')(passport); // pass passport for configuration
+app.use(function(err, req, res, next) {
+	console.log(err);
+	res.send(500);
+});
 
-	app.use(function(err, req, res, next) {
-	    console.log(err);
-	    res.send(500);
-	});
-
-	app.use(favicon(__dirname + '/public/images/like.ico'));
-
-
-
-//app.use(morgan('combined'));
-
-//ERROR HANdler
-//express error handler (never called)
-
+app.use(favicon(__dirname + '/public/images/like.ico'));
 
 
 /////////PUBLIC
@@ -52,23 +40,17 @@ app.get('/search/:tagId', function (req, res) {
 
 });
 
-app.get('/', isLoggedIn, function (req, res, next) {
+/////////PRIVATE
+
+var authMiddleware = wedeployMiddleware.auth({
+  url: 'auth.musicv.wedeploy.io',
+  redirect: '/login'
+});
+
+app.get('/', authMiddleware, function (req, res, next) {
     console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
-
-
-// route middleware to make sure
-function isLoggedIn(req, res, next) {
-
-	// if user is authenticated in the session, carry on
-	if (req.isAuthenticated())
-		return next();
-
-	// if they aren't redirect them to the home page
-	res.redirect('/login');
-}
-
 
 
 //LISTEN
