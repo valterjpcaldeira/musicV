@@ -18,10 +18,10 @@ require('./config/passport')(passport); // pass passport for configuration
 	//app.use(express.cookieParser()); // read cookies (needed for auth)
 
 	// required for passport
-	app.use(express.session({ secret: 'ilovewedeploywedeploywedeploy' })); // session secret
-	app.use(passport.initialize());
-	app.use(passport.session()); // persistent login sessions
-	app.use(flash()); // use connect-flash for flash messages stored in session
+	//app.use(express.session({ secret: 'ilovewedeploywedeploywedeploy' })); // session secret
+	//app.use(passport.initialize());
+	//app.use(passport.session()); // persistent login sessions
+	//app.use(flash()); // use connect-flash for flash messages stored in session
 
 	app.use(function(err, req, res, next) {
 	    console.log(err);
