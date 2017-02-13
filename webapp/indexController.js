@@ -47,7 +47,7 @@ var authMiddleware = wedeployMiddleware.auth({
   redirect: '/login'
 });
 
-app.get('/', authMiddleware, function (req, res, next) {
+app.get('/', function (req, res, next) {
     console.log('User: ', res.locals.user);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
