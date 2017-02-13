@@ -7,16 +7,15 @@ var WeDeploy = require('wedeploy');
 var app = express();
 
 //CONFIG
+app.use(express.static('public'));
 app.use(function(err, req, res, next) {
 	console.log(err);
 	res.send(500);
 });
-
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
 
 /////////PUBLIC
-
 //LOGIN
 app.get('/login', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/login.html'));
