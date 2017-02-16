@@ -1,7 +1,7 @@
 var form = document.querySelector('#form');
 var list = document.querySelector('.list');
-
-var currentUser = WeDeploy.auth("http://auth.musicv.wedeploy.me").currentUser;
+var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
+var currentUser = WeDeploy.auth("auth.musicv.wedeploy.io").currentUser;
 
 if (currentUser) {
 	console.log(currentUser);
