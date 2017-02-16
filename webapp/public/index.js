@@ -12,7 +12,7 @@ if (currentUser) {
 	console.log("not logged in");
    $("#userNameAbrev").text("A");
    $("#userName").text("Anonimus");
-	//window.location.replace("http://musicv.wedeploy.io/login");
+   window.location.replace("http://musicv.wedeploy.io/login");
 }
 
 form.addEventListener('submit', function(e) { 
