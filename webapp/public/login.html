@@ -40,16 +40,18 @@
       var provider = new auth.provider.Facebook();
       
       provider.setProviderScope("email");
-      provider.redirectUri = "http://musicv.wedeploy.io/";
       auth.signInWithRedirect(provider);
     }
 
     function google(){
       var googleProvider = new auth.provider.Google();
       googleProvider.setProviderScope('email');
-      googleProvider.redirectUri = "http://musicv.wedeploy.io/";
       auth.signInWithRedirect(googleProvider);
     }
+    
+    auth.onSignIn(function(user) {
+			alert('Signed-in ' + user.email);
+		});
 
   </script>
 </body>
