@@ -12,15 +12,7 @@ WeDeploy.data('http://data.musicv.wedeploy.io')
 		console.log(error);
 	});
 
-	WeDeploy 
-  .data('http://data.musicv.wedeploy.io') 
-  .where('state', '=', 1) 
-  .limit(15) 
-  .orderBy('id', 'asc') 
-  .watch('youtubeLinks') 
-  .on('changes', function(tasks) { 
-    appendTasks(tasks); 
-  }); 
+	
 }
 
 
