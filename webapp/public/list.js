@@ -41,7 +41,7 @@ function appendTasks(tasks) {
 
     var title = task.title;
     if(title){
-      title = title.substring(0, 34);
+      title = title.substring(0, 40);
     } else{
       title = "No Title";
     }
