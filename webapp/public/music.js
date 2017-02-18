@@ -90,6 +90,8 @@ function appendVideo(tasks) {
           height: '390',
           width: '640',
           videoId: videoCode,
+          controls: 0,
+          disablekb: 1,
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange,
