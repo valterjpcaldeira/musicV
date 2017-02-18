@@ -3,7 +3,7 @@ function loadTabLis(){
 WeDeploy.data('http://data.musicv.wedeploy.io')
   .where('state', '=', 1)
   .orderBy('id', 'asc')
-  .limit(15)
+  .limit(24)
   .get('youtubeLinks')
 	.then(function(response) {
 		appendTasks(response);
