@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
-var wedeployMiddleware = require('wedeploy-middleware');
+//var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
 var app = express();
 
@@ -45,9 +45,9 @@ app.get('/search/:tagId', function (req, res) {
 //  url: 'auth.musicv.wedeploy.io',
 //  redirect: '/login'
 //});
-app.use(wedeployMiddleware.auth({url: 'auth.project.wedeploy.io'}));
+//app.use(wedeployMiddleware.auth({url: 'auth.project.wedeploy.io'}));
 app.get('/', function (req, res, next) {
-	console.log('User: ', res.locals.auth.currentUser);
+	//console.log('User: ', res.locals.auth.currentUser);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
 
