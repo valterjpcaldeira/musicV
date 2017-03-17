@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
-var wedeployMiddleware = require('wedeploy-middleware');
+//var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
 var app = express();
 
@@ -41,10 +41,10 @@ app.get('/search/:tagId', function (req, res) {
 
 /////////PRIVATE
 
-var authMiddleware = wedeployMiddleware.auth({
-  url: 'auth.musicv.wedeploy.io',
-  redirect: '/login'
-});
+//var authMiddleware = wedeployMiddleware.auth({
+//  url: 'auth.musicv.wedeploy.io',
+//  redirect: '/login'
+//});
 
 app.get('/', function (req, res, next) {
     console.log('User: ', res.locals.user);
