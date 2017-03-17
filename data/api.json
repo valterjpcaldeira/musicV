@@ -3,6 +3,7 @@
 		"path": "/youtubeLinks/*",
 		"data": true
 	},
+	
 	{
 	    "path": "/*",
 	    "data": true
