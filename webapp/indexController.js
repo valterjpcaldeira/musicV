@@ -6,7 +6,7 @@ var favicon = require('serve-favicon');
 var WeDeploy = require('wedeploy');
 var app = express();
 
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 
 //CONFIG
 app.use(express.static('public'));
