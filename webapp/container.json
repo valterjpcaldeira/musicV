@@ -2,7 +2,6 @@
 	"id": "nodejs",
 	"type": "wedeploy/nodejs",
 	"hooks": {
-		"build": "npm install && npm run build",
-    		"start": "npm run build && npm start"
+		"build": "npm install"
 	}
 }
