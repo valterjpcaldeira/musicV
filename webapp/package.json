@@ -7,11 +7,11 @@
     "start": "node indexController.js"
   },
   "dependencies": {
-    "express": "^4.14.0",
-    "morgan": "^1.7.0",
-    "youtube-node": "^1.3.0",
-    "serve-favicon" : "^2.3.2",
-    "wedeploy-middleware" : "^0.0.3",
-    "wedeploy" : "^1.3.2"
+    "express": "latest",
+    "morgan": "latest",
+    "youtube-node": "latest",
+    "serve-favicon" : "latest",
+    "wedeploy-middleware" : "latest",
+    "wedeploy" : "latest"
   }
 }
