@@ -16,6 +16,15 @@ app.use(function(err, req, res, next) {
 });
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
+app.get('/foo', function(req, res, next) {
+ var data = WeDeploy.data('http://data.music.wedeploy.io');
+ data.get('/youtubeLinks').then(function(clientResponse) {
+	 res.json(clientResponse);
+}).catch((err) => {
+     res.json(err);
+   });
+});
+
 
 /////////PUBLIC
 //LOGIN
