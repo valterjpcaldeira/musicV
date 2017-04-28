@@ -4,6 +4,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 //var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
+var http = require('http');
 var app = express();
 
 //app.use(morgan('combined'));

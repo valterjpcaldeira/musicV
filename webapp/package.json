@@ -12,6 +12,7 @@
     "youtube-node": "latest",
     "serve-favicon" : "latest",
     "wedeploy-middleware" : "latest",
-    "wedeploy" : "latest"
+    "wedeploy" : "latest",
+    "http" : "latest"
   }
 }
