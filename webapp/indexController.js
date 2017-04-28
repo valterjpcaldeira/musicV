@@ -17,7 +17,7 @@ app.use(function(err, req, res, next) {
 });
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
-app.get('/foo', function(req, result, next) {
+app.get('/foo', function(req, result) {
 	var url = 'http://data.musicv.wedeploy.io';
 
 	http.get(url, function(res){
