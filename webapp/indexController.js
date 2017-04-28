@@ -16,13 +16,24 @@ app.use(function(err, req, res, next) {
 });
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
-app.get('/foo', function(req, res, next) {
- var data = WeDeploy.data('http://data.music.wedeploy.io');
- data.get('/youtubeLinks').then(function(clientResponse) {
-	 res.json(clientResponse);
-}).catch((err) => {
-     res.json(err);
-   });
+app.get('/foo', function(req, result, next) {
+	var url = 'http://data.musicv.wedeploy.io';
+
+	http.get(url, function(res){
+	    var body = '';
+
+	    res.on('data', function(chunk){
+	        body += chunk;
+	    });
+
+	    res.on('end', function(){
+	        var fbResponse = JSON.parse(body);
+	        console.log("Got a response: ", fbResponse);
+	        result.json(clientResponse);
+	    });
+	}).on('error', function(e){
+	      console.log("Got an error: ", e);
+	});
 });
 
 
