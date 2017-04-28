@@ -22,15 +22,16 @@ app.get('/foo', function(req, result, next) {
 
 	http.get(url, function(res){
 	    var body = '';
+	    console.log("Got a response: aaaaaa");
 
 	    res.on('data', function(chunk){
 	        body += chunk;
+	        console.log("Got a response: "+body);
 	    });
 
 	    res.on('end', function(){
-	        var fbResponse = JSON.parse(body);
-	        console.log("Got a response: ", fbResponse);
-	        result.json(clientResponse);
+	    	console.log("Got a response: ", fbResponse);
+	        result.json(body);
 	    });
 	}).on('error', function(e){
 	      console.log("Got an error: ", e);
