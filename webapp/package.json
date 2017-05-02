@@ -13,6 +13,7 @@
     "serve-favicon" : "latest",
     "wedeploy-middleware" : "latest",
     "wedeploy" : "latest",
+    "node-rest-client" : "latest",
     "http" : "latest"
   }
 }
