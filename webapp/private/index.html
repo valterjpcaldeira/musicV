@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<link rel="stylesheet" src="chatbot.css" />
 </head>
 <body>
 
@@ -135,6 +136,39 @@
 
   </main>
 </div>
+	
+	
+	<a href="#" class="chatbot-trigger chatClosed" id="chatbot-trigger">
+    <i class="fa chatIcon" aria-hidden="true"></i>
+    <p class="textChatBtn">AJUDA</p>
+</a>
+
+<div class="chatbot" id="chatbot" style="z-index: 99999">
+    <div class="row nm">
+        <div class="col-xs-12 chat">
+            <div class="chat-wrapper">
+                <div class="message-block">
+                </div>
+                <div class="message-waiting" style="display: none">
+                    <p class="message out">
+                        <span class="jumping-dots">
+                            <span class="fa fa-circle dot-1" aria-hidden="true"></span>
+                            <span class="fa fa-circle dot-2" aria-hidden="true"></span>
+                            <span class="fa fa-circle dot-3" aria-hidden="true"></span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 input-wrapper np">
+            <input type="text" class="form-control" placeholder="Escreva a sua mensagem" id="chatbot-input">
+            <a href="#" class="send" id="chatbot-send">Enviar</a>
+        </div>
+    </div>
+</div>
+	
+	
+	
 	<script src="jquery-3.1.1.min.js"></script>
 	<script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -143,6 +177,7 @@
 	<script src="list.js"></script>
 	<script src="music.js"></script>
 	<script src="history.js"></script>
+	<script src="chatbot.js"></script>
 	<script src="top.js"></script>	
 </body>
 </html>
