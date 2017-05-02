@@ -30,11 +30,10 @@ app.get('/api/test', function(req, res, next) {
 	http.request(options, function(res) {
 	  console.log('STATUS: ' + res.statusCode);
 	  console.log('HEADERS: ' + JSON.stringify(res.headers));
-	  res.setEncoding('utf8');
-	  	res.on('data', function (chunk) {
-	    		res.send(chunk);
-		}).end();
+	  res.send(chunk);
 	});
+	
+	res.send(users);
 });
 
 
