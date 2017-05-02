@@ -17,11 +17,12 @@
     z-index: 99999;
     background-color: #00D46A;
 
-    &:hover {
+}
+
+.chatClosed:hover {
         box-shadow: 0px 0px 6px rgba(0,0,0,.15);
         color: #fff;
     }
-}
 
 .chatbot {
     width: 360px;
@@ -32,50 +33,49 @@
     border-radius: 16px;
     overflow: hidden;
     display: none;
+    
+}
 
-    .chat {
+  .chatbot  .chat {
         height: 400px;
         padding: 15px;
         overflow-y: auto;
     }
 
-    .chat-wrapper {
+.chatbot .message-block, .chatbot .message-waiting { margin-bottom: 8px; }
 
-    }
-
-    .message-block, .message-waiting { margin-bottom: 8px; }
-
-    .message {
+.chatbot .message {
         font-size: 15px;
         margin: 2px 0;
+    }
 
-        span {
+.chatbot .message span {
             padding: 8px 12px;
             line-height: 20px;
             display: inline-block;
             max-width: 84%;
             border-radius : 20px;
         }
-    }
 
-    .message.in { text-align: right; }
-    .message.in span { background-color: #FFFFFF; color: #333; }
-    .message.out span { background-color: #A5A5A5; color: #fff; }
+.chatbot .message.in { text-align: right; }
+.chatbot .message.in span { background-color: #FFFFFF; color: #333; }
+.chatbot .message.out span { background-color: #A5A5A5; color: #fff; }
 
-    .message.out a {color:#fff}
-    .message.in a {color:#888}
-    .message a {text-decoration: underline;}
+.chatbot .message.out a {color:#fff}
+.chatbot .message.in a {color:#888}
+.chatbot .message a {text-decoration: underline;}
 
-    .message-waiting .message span { line-height: 10px; }
-    .message-waiting .message span .fa { font-size: 6px; padding: 0px 0px;}
+.chatbot .message-waiting .message span { line-height: 10px; }
+.chatbot .message-waiting .message span .fa { font-size: 6px; padding: 0px 0px;}
 
-    .input-wrapper {
+.chatbot .input-wrapper {
         background-color: #fff;
         padding-right: 34px;
         position: relative;
         height: 50px;
+}
 
-        .form-control {
+.chatbot .input-wrapper .form-control {
             border-width: 0;
             font-size: 12px;
             color: #888;
@@ -86,7 +86,7 @@
             padding-top: 22px;
         }
 
-        .send {
+.chatbot .input-wrapper .send {
             padding-top: 11px;
             width: 34px;
             height: 34px;
@@ -95,9 +95,7 @@
             position: absolute;
             top: 0;
             right: 18px;;
-            color: $primary-color;
-        }
-    }
+            color: #00D46A;
 }
 
 .chat .search-bubble {
@@ -162,12 +160,12 @@
     border-radius: 24px;
     z-index: 99999;
     background-color: #00D46A;
+}
 
-    &:hover {
+.chatOpen:hover {
         box-shadow: 0px 0px 6px rgba(0,0,0,.15);
         color: #fff;
     }
-}
 
 .textChatBtn {
     position: absolute;
@@ -175,3 +173,21 @@
     right: 50px;
     color: #fff;
 }
+
+.nm {
+    margin: 0!important;
+}
+
+body {
+    font-family: Roboto;
+    font-size: 14px!important;
+    color: #333;
+    line-height: 18px;
+    padding-top: 101px;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+
