@@ -1,7 +1,5 @@
 
     $('#chatbot-trigger').on('click', function(event){
-        closeAudiosAuth();
-        if (typeof chat2 !== 'undefined')chat2.play();
         event.preventDefault();
         var $chatbot = $('#chatbot');
 
@@ -76,8 +74,6 @@
 
         var split = val.toLowerCase().split(' ');
 
-            console.log($.inArray('mudar', split));
-
             if( ($.inArray('mudar', split) > -1  ||
                 $.inArray('alterar', split) > -1||
                 $.inArray('mudança', split) > -1||
@@ -88,9 +84,6 @@
                 $.inArray('alteraçao', split) > -1 ) &&
                 $.isArray('morada', split) > -1 ){
 
-
-
-                closeAudiosAuth();
                 if (typeof chat3 !== 'undefined')chat3.play();
 
                 $('#chatbot .message-waiting').stop().fadeIn(); 
