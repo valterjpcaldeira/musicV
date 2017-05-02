@@ -7,32 +7,6 @@ var WeDeploy = require('wedeploy');
 var http = require('http');
 var app = express();
 
-var Client = require('node-rest-client').Client;
-var client = new Client();
-
-// Lista de Utilizadores
-var users = [
-  { id: 1, username: 'Pedro Pinto', email: 'ppinto@ppl.com' },
-  { id: 2, username: 'Francisco', email: 'francisco@ppl.com' }, 
-  { id: 3, username: 'Carla Figueiredo', email: 'cfig@ppl.com' }
-];
-// Definir um endpoint da API
-app.get('/api/listaUsers', function(req, res, next) {
-  res.send(users);
-});
-
-app.get('/api/test', function(req, res, next) {
-	client.get("http://data.musicv.wedeploy.io", function (data, response) {
-	    // parsed response body as js object 
-	    console.log(data);
-	    // raw response 
-	    console.log(response);
-	    res.send(data);
-	});
-});
-
-
-
 
 //CONFIG
 app.use(express.static('public'));
@@ -41,20 +15,6 @@ app.use(function(err, req, res, next) {
 	res.send(500);
 });
 app.use(favicon(__dirname + '/public/images/like.ico'));
-
-app.get('/foo', function(req, result) {
-	var url = 'http://data.musicv.wedeploy.io';
-
-	http.get(url, function(res){
-	    var body = '';
-	    console.log("Got a response: aaaaaa");
-
-	    res.send(res);
-		
-	}).on('error', function(e){
-	      res.send(users);
-	});
-});
 
 
 /////////PUBLIC
