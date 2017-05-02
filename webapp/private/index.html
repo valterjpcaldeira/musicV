@@ -14,11 +14,38 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 <body>
+	
+	<a href="#" class="chatbot-trigger chatClosed" id="chatbot-trigger">
+    <i class="fa chatIcon" aria-hidden="true"></i>
+    <p class="textChatBtn">AJUDA</p>
+</a>
 
+<div class="chatbot" id="chatbot" style="z-index: 99999">
+    <div class="row nm">
+        <div class="col-xs-12 chat">
+            <div class="chat-wrapper">
+                <div class="message-block">
+                </div>
+                <div class="message-waiting" style="display: none">
+                    <p class="message out">
+                        <span class="jumping-dots">
+                            <span class="fa fa-circle dot-1" aria-hidden="true"></span>
+                            <span class="fa fa-circle dot-2" aria-hidden="true"></span>
+                            <span class="fa fa-circle dot-3" aria-hidden="true"></span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 input-wrapper np">
+            <input type="text" class="form-control" placeholder="Escreva a sua mensagem" id="chatbot-input">
+            <a href="#" class="send" id="chatbot-send">Enviar</a>
+        </div>
+    </div>
+</div>
 
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
@@ -145,35 +172,7 @@
   </main>
 </div>
 	
-	
-	<a href="#" class="chatbot-trigger chatClosed" id="chatbot-trigger">
-    <i class="fa chatIcon" aria-hidden="true"></i>
-    <p class="textChatBtn">AJUDA</p>
-</a>
 
-<div class="chatbot" id="chatbot" style="z-index: 99999">
-    <div class="row nm">
-        <div class="col-xs-12 chat">
-            <div class="chat-wrapper">
-                <div class="message-block">
-                </div>
-                <div class="message-waiting" style="display: none">
-                    <p class="message out">
-                        <span class="jumping-dots">
-                            <span class="fa fa-circle dot-1" aria-hidden="true"></span>
-                            <span class="fa fa-circle dot-2" aria-hidden="true"></span>
-                            <span class="fa fa-circle dot-3" aria-hidden="true"></span>
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 input-wrapper np">
-            <input type="text" class="form-control" placeholder="Escreva a sua mensagem" id="chatbot-input">
-            <a href="#" class="send" id="chatbot-send">Enviar</a>
-        </div>
-    </div>
-</div>
 	
 	
 	
@@ -189,5 +188,7 @@
 	<script src="top.js"></script>	
 	<script src="libs.js"></script>	
 	<script src="plugins.js"></script>	
+	<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
