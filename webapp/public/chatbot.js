@@ -21,7 +21,7 @@
                 $(this).addClass('open');
                 $('#chatbot .message-waiting').stop().fadeIn(); 
                 setTimeout(function(){ 
-                    printMessage('Olá! Eu sou o Assistente Virtual do Portal do Cidadão.'); 
+                    printMessage('Olá! Eu sou o Assistente Virtual do MusicV.'); 
                     $('#chatbot .message-waiting').stop().fadeIn();
                     setTimeout(function(){  printMessage('Se precisar de alguma ajuda, escreva o que precisa. Para uma ajuda mais eficaz, coloque as questões individualmente.'); },2000);
                 },1000);
