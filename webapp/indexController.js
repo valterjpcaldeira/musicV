@@ -35,17 +35,10 @@ app.get('/foo', function(req, result) {
 	    var body = '';
 	    console.log("Got a response: aaaaaa");
 
-	    res.on('data', function(chunk){
-	        body += chunk;
-	        console.log("Got a response: "+body);
-	    });
-
-	    res.on('end', function(){
-	    	console.log("Got a response: ", fbResponse);
-	        result.json(body);
-	    });
+	    res.send(res);
+		
 	}).on('error', function(e){
-	      console.log("Got an error: ", e);
+	      res.send(users);
 	});
 });
 
