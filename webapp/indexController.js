@@ -21,20 +21,21 @@ app.get('/api/listaUsers', function(req, res, next) {
 });
 
 app.get('/api/test', function(req, res, next) {
-  var options = {
-  host: "http://data.musicv.wedeploy.io",
-  port: 80,
-  path: '/',
-  method: 'GET'
-};
+	var options = {
+	  host: "http://data.musicv.wedeploy.io",
+	  port: 80,
+	  path: '/',
+	  method: 'GET'
+	};
 
-http.request(options, function(res) {
-  console.log('STATUS: ' + res.statusCode);
-  console.log('HEADERS: ' + JSON.stringify(res.headers));
-  res.setEncoding('utf8');
-  res.on('data', function (chunk) {
-    res.send(chunk);
-}).end();
+	http.request(options, function(res) {
+	  console.log('STATUS: ' + res.statusCode);
+	  console.log('HEADERS: ' + JSON.stringify(res.headers));
+	  res.setEncoding('utf8');
+	  	res.on('data', function (chunk) {
+	    		res.send(chunk);
+		}).end();
+	});
 });
 
 
