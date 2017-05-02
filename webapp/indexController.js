@@ -7,7 +7,8 @@ var WeDeploy = require('wedeploy');
 var http = require('http');
 var app = express();
 
-//app.use(morgan('combined'));
+var Client = require('node-rest-client').Client;
+var client = new Client();
 
 // Lista de Utilizadores
 var users = [
@@ -21,19 +22,13 @@ app.get('/api/listaUsers', function(req, res, next) {
 });
 
 app.get('/api/test', function(req, res, next) {
-	var options = {
-	  host: "http://data.musicv.wedeploy.io",
-	  path: '/',
-	  method: 'GET'
-	};
-
-	http.request(options, function(res) {
-	  console.log('STATUS: ' + res.statusCode);
-	  console.log('HEADERS: ' + JSON.stringify(res.headers));
-	  res.send(chunk);
+	client.get("http://data.musicv.wedeploy.io", function (data, response) {
+	    // parsed response body as js object 
+	    console.log(data);
+	    // raw response 
+	    console.log(response);
+	    res.send(data);
 	});
-	
-	res.send(users);
 });
 
 
