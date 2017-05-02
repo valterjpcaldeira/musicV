@@ -23,7 +23,6 @@ app.get('/api/listaUsers', function(req, res, next) {
 app.get('/api/test', function(req, res, next) {
 	var options = {
 	  host: "http://data.musicv.wedeploy.io",
-	  port: 80,
 	  path: '/',
 	  method: 'GET'
 	};
