@@ -4,8 +4,13 @@ var path = require('path');
 var favicon = require('serve-favicon');
 //var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
-var http = require('http');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
 
 
 //CONFIG
