@@ -5,8 +5,8 @@ var favicon = require('serve-favicon');
 //var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var server  = app.listen(80);
+var io      = require('socket.io').listen(server);
 
 io.on('connection', function(socket){
   console.log('a user connected');
