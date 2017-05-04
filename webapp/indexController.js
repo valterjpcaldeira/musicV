@@ -4,12 +4,16 @@ var path = require('path');
 var favicon = require('serve-favicon');
 //var wedeployMiddleware = require('wedeploy-middleware');
 var WeDeploy = require('wedeploy');
-var app = express();
-var server  = app.listen(80);
-var io      = require('socket.io').listen(server);
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 io.on('connection', function(socket){
   console.log('a user connected');
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
 
 
