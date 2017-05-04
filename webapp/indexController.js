@@ -19,10 +19,6 @@ http.listen(3000, function(){
 
 //CONFIG
 app.use(express.static('public'));
-app.use(function(err, req, res, next) {
-	console.log(err);
-	res.send(500);
-});
 app.use(favicon(__dirname + '/public/images/like.ico'));
 
 
@@ -61,12 +57,4 @@ app.get('/', function (req, res, next) {
 	//console.log('User: ', res.locals.auth.currentUser);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
-
-
-//LISTEN
-app.listen(80, function () {
-
-});
-
-
 
