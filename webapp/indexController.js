@@ -1,5 +1,5 @@
 var express = require('express');
-var morgan = require('morgan');
+//var morgan = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
 //var wedeployMiddleware = require('wedeploy-middleware');
@@ -7,14 +7,6 @@ var WeDeploy = require('wedeploy');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-});
 
 
 //CONFIG
@@ -56,5 +48,13 @@ app.get('/search/:tagId', function (req, res) {
 app.get('/', function (req, res, next) {
 	//console.log('User: ', res.locals.auth.currentUser);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
 
