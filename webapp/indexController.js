@@ -13,7 +13,7 @@ var numUsers = 0;
 //CONFIG
 app.use(express.static('public'));
 app.use(favicon(__dirname + '/public/images/like.ico'));
-app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io'}));
+//app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io'}));
 
 
 /////////PUBLIC
