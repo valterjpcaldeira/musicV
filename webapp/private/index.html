@@ -55,6 +55,7 @@
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title">MusicV</span>
+      <div class="material-icons mdl-badge mdl-badge--overlap onlinePeolple" data-badge="1" id="onlinePeolple">account_box</div>
     </div>
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
@@ -67,7 +68,7 @@
   </header>
   <div class="mdl-layout__drawer">
   	<span class="mdl-layout-title">MusicV</span> 
-  	<span class="mdl-chip mdl-chip--contact">
+  	<span class="mdl-chip mdl-chip--contact ml10 mr10">
 	    <span id="userNameAbrev" class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
 	    <span id="userName" class="mdl-chip__text">Contact Chip</span>
 	</span>
@@ -175,7 +176,17 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io();
+  $(function () {
+    var socket = io();
+    $('#chatbot-send').on('click', function(event){
+        socket.emit('chat message', $('#chatbot-input').val());
+      	$('#chatbot-input').val('');
+      	return false;
+    });
+    socket.on('people connected', function(num){
+      $('#onlinePeolple').attr("data-badge", num);
+    });
+  });
 </script>
 	
 	

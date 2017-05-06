@@ -400,3 +400,16 @@ footer img {
 footer img:hover { opacity: .83; }
 
 footer img:focus , footer a:focus { outline: none; }
+
+.ml10{
+	margin-left: 10px
+}
+
+.mr10{
+	margin-right: 10px
+}
+
+.onlinePeolple{
+	position: absolute;
+    right: 32px;
+}

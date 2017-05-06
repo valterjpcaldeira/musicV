@@ -7,6 +7,7 @@ var WeDeploy = require('wedeploy');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var numUsers = 0;
 
 
 //CONFIG
@@ -51,7 +52,17 @@ app.get('/', function (req, res, next) {
 });
 
 io.on('connection', function(socket){
+	numUsers++;
+	io.emit('people connected', numUsers);
   console.log('a user connected');
+  socket.on('disconnect', function(){
+  	numUsers--;
+  	io.emit('people connected', numUsers);
+    console.log('user disconnected');
+  });
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
 });
 
 http.listen(80, function(){
