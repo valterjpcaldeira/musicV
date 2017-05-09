@@ -36,7 +36,7 @@ app.get('/search/:tagId', function (req, res) {
 	  else {
 	   res.json(result);
 	  }
-	});s
+	});
 
 });
 
