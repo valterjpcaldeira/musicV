@@ -59,6 +59,7 @@ function search(){
 		 
 		  list.innerHTML = taskList+'</ul>';
 		  stopLoading();
+		});
 }
 
 
