@@ -18,16 +18,27 @@ $(function () {
 	   window.location.replace("http://musicv.wedeploy.io/login");
 	}
 
-	var form = document.querySelector('#form');
-	form.addEventListener('submit', function(e) { 
-	  e.preventDefault(); 
-	  	list.innerHTML = "";
+	$("#search").keypress(function(e) {
+	    if(e.which == 13) {
+	        search();
+	    }
+	});
+
+	
+
+});
+
+
+var list = document.querySelector('.list');
+
+function search(){
+	list.innerHTML = "";
 
 		startLoading();
 
-		var url = $("#url").val();
+		var search = $("#search").val();
 
-		$.getJSON( "/search/"+url, function( data ) {
+		$.getJSON( "/search/"+search, function( data ) {
 		  var items = [];
 		  var taskList = '<ul>';
 		  $.each( data.items, function( key, val ) {
@@ -48,14 +59,7 @@ $(function () {
 		 
 		  list.innerHTML = taskList+'</ul>';
 		  stopLoading();
-		});
-
-	}); 
-
-});
-
-
-var list = document.querySelector('.list');
+}
 
 
 function addThis(elm){
