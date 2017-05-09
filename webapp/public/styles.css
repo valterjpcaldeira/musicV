@@ -216,7 +216,7 @@ a:focus, a:hover {
 }
     
 .container-1{
-  width: 300px;
+  width: 100%;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
@@ -234,12 +234,13 @@ a:focus, a:hover {
   -moz-border-radius: 5px;
   border-radius: 5px;
   -webkit-transition: background .55s ease;
--moz-transition: background .55s ease;
--ms-transition: background .55s ease;
--o-transition: background .55s ease;
-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
     background: #ffffff;
     border-style: solid;
+    box-shadow: 0px 0px 6px rgba(0,0,0,.15);
 }
 
 .container-1 input#search::-webkit-input-placeholder {
