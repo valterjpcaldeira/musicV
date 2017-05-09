@@ -3,6 +3,15 @@ $(function () {
     var socket = io();
     var myMsg = "";
 
+    $('#chatbot-send').on('click', function(event){
+        socket.emit('chat message', $('#chatbot-input').val());
+        $('#chatbot-input').val('');
+        return false;
+    });
+    socket.on('people connected', function(num){
+      $('#onlinePeolple').attr("data-badge", num);
+    });
+
     $('#chatbot-trigger').on('click', function(event){
         event.preventDefault();
         var $chatbot = $('#chatbot');
@@ -21,15 +30,15 @@ $(function () {
             $('#chatbot-trigger').find("i").removeClass("chatIcon");
             $('#chatbot-trigger').addClass("chatOpen");
             $('#chatbot-trigger').removeClass("chatClosed");
-            /*$chatbot.stop().fadeIn(function(){
+            $chatbot.stop().fadeIn(function(){
                 $(this).addClass('open');
-                $('#chatbot .message-waiting').stop().fadeIn(); 
+                /*$('#chatbot .message-waiting').stop().fadeIn(); 
                 setTimeout(function(){ 
                     printMessage('Olá! Eu sou o Assistente Virtual do MusicV.'); 
                     $('#chatbot .message-waiting').stop().fadeIn();
                     setTimeout(function(){  printMessage('Se precisar de alguma ajuda, escreva o que precisa. Para uma ajuda mais eficaz, coloque as questões individualmente.'); },2000);
-                },1000);
-            });*/
+                },1000);*/
+            });
         }
     });
 
