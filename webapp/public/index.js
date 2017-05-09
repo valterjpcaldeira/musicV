@@ -1,5 +1,9 @@
 $(function () {
 
+	var form = document.querySelector('#form'); 
+	var list = document.querySelector('.list'); 
+	var auth = WeDeploy.auth('auth.musicv.wedeploy.io');  
+
 	var currentUser = auth.currentUser;
 
 	if (currentUser) {
