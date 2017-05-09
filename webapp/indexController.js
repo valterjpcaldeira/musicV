@@ -55,15 +55,15 @@ app.get('/', function (req, res, next) {
 io.on('connection', function(socket){
 	numUsers++;
 	io.emit('people connected', numUsers);
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-  	numUsers--;
-  	io.emit('people connected', numUsers);
-    console.log('user disconnected');
-  });
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-  });
+
+ 	socket.on('disconnect', function(){
+	  	numUsers--;
+	  	io.emit('people connected', numUsers);
+  	});
+
+  	socket.on('chat message', function(msg){
+    	io.emit('chat message', msg);
+  	});
 });
 
 http.listen(80, function(){

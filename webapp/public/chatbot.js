@@ -1,3 +1,7 @@
+$(function () {
+
+    var socket = io();
+    var myMsg = "";
 
     $('#chatbot-trigger').on('click', function(event){
         event.preventDefault();
@@ -17,7 +21,7 @@
             $('#chatbot-trigger').find("i").removeClass("chatIcon");
             $('#chatbot-trigger').addClass("chatOpen");
             $('#chatbot-trigger').removeClass("chatClosed");
-            $chatbot.stop().fadeIn(function(){
+            /*$chatbot.stop().fadeIn(function(){
                 $(this).addClass('open');
                 $('#chatbot .message-waiting').stop().fadeIn(); 
                 setTimeout(function(){ 
@@ -25,16 +29,30 @@
                     $('#chatbot .message-waiting').stop().fadeIn();
                     setTimeout(function(){  printMessage('Se precisar de alguma ajuda, escreva o que precisa. Para uma ajuda mais eficaz, coloque as questões individualmente.'); },2000);
                 },1000);
-            });
+            });*/
+        }
+    });
+
+    socket.on('chat message', function(msg){
+        if(msg !== myMsg){
+           printMessage(msg);  
         }
     });
 
     function send(event){
         event.preventDefault();
+
+
+
         var wrapper = $('#chatbot .chat-wrapper');
         var val = $('#chatbot-input').val();
         var chat = $('#chatbot .chat');
-        var html = '<div class="message-block"><p class="message in"><span>' + $('#chatbot-input').val() + '</span></p></div>';
+        var html = '<div class="message-block"><p class="message in"><span>' + val + '</span></p></div>';
+
+        myMsg = val;
+        socket.emit('chat message', val);
+
+
 
 
         if(wrapper.height() > wrapper.parent().height()){
@@ -122,4 +140,7 @@
             }
 
     }
+
+
+  });
 
