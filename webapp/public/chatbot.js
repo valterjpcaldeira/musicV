@@ -74,7 +74,7 @@ $(function () {
         var element = $(".chat");
         element[0].scrollTop = element[0].scrollHeight;
 
-        sendResponse(val);
+        //sendResponse(val);
     }
 
     $("#chatbot-input").keypress(function(e) {
