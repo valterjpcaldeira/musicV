@@ -202,3 +202,10 @@ body {
     right: 32px;
 }
 
+:focus {
+    outline: none;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}

@@ -1,52 +1,58 @@
-var form = document.querySelector('#form');
+$(function () {
+
+	var currentUser = auth.currentUser;
+
+	if (currentUser) {
+		console.log(currentUser);
+		var firsLetter = currentUser.name.substring(0,1);
+	   $("#userNameAbrev").text(firsLetter);
+	   $("#userName").text(currentUser.name);
+	} else {
+		console.log("not logged in");
+	   $("#userNameAbrev").text("A");
+	   $("#userName").text("Anonimus");
+	   window.location.replace("http://musicv.wedeploy.io/login");
+	}
+
+	var form = document.querySelector('#form');
+	form.addEventListener('submit', function(e) { 
+	  e.preventDefault(); 
+	  	list.innerHTML = "";
+
+		startLoading();
+
+		var url = $("#url").val();
+
+		$.getJSON( "/search/"+url, function( data ) {
+		  var items = [];
+		  var taskList = '<ul>';
+		  $.each( data.items, function( key, val ) {
+		  	if(val.id.videoId){
+		  		taskList += '<div class="mdl-list__item">'+
+				    '<span class="mdl-list__item-primary-content">'+
+				     ' <i><img class="alignnone size-full wp-image-156" style="width:69px;margin-right:10px;" src="'+val.snippet.thumbnails.default.url+'" ></img>'+
+				     '</i>'+
+				      '<h6>'+val.snippet.title+'</h6>'+
+				    '</span>'+
+				    '<button value='+val.id.videoId+' urlThumbnill="'+val.snippet.thumbnails.default.url+'" title="'+val.snippet.title+'" description="'+val.snippet.description+'" onclick="addThis(this)" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">'+
+	  					'<i class="material-icons">add</i>'+
+					'</button>'+
+				  '</div>';
+				}
+		  	
+		  });
+		 
+		  list.innerHTML = taskList+'</ul>';
+		  stopLoading();
+		});
+
+	}); 
+
+});
+
+
 var list = document.querySelector('.list');
-var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
-var currentUser = auth.currentUser;
 
-if (currentUser) {
-	console.log(currentUser);
-	var firsLetter = currentUser.name.substring(0,1);
-   $("#userNameAbrev").text(firsLetter);
-   $("#userName").text(currentUser.name);
-} else {
-	console.log("not logged in");
-   $("#userNameAbrev").text("A");
-   $("#userName").text("Anonimus");
-   window.location.replace("http://musicv.wedeploy.io/login");
-}
-
-form.addEventListener('submit', function(e) { 
-  e.preventDefault(); 
-  	list.innerHTML = "";
-
-	startLoading();
-
-	var url = $("#url").val();
-
-	$.getJSON( "/search/"+url, function( data ) {
-	  var items = [];
-	  var taskList = '<ul>';
-	  $.each( data.items, function( key, val ) {
-	  	if(val.id.videoId){
-	  		taskList += '<div class="mdl-list__item">'+
-			    '<span class="mdl-list__item-primary-content">'+
-			     ' <i><img class="alignnone size-full wp-image-156" style="width:69px;margin-right:10px;" src="'+val.snippet.thumbnails.default.url+'" ></img>'+
-			     '</i>'+
-			      '<h6>'+val.snippet.title+'</h6>'+
-			    '</span>'+
-			    '<button value='+val.id.videoId+' urlThumbnill="'+val.snippet.thumbnails.default.url+'" title="'+val.snippet.title+'" description="'+val.snippet.description+'" onclick="addThis(this)" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">'+
-  					'<i class="material-icons">add</i>'+
-				'</button>'+
-			  '</div>';
-			}
-	  	
-	  });
-	 
-	  list.innerHTML = taskList+'</ul>';
-	  stopLoading();
-	});
-
-}); 
 
 function addThis(elm){
 	list.innerHTML = "";
