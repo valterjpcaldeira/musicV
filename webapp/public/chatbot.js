@@ -2,10 +2,13 @@ $(function () {
 
     var socket = io();
     var myMsg = "";
+    var auth = WeDeploy.auth('auth.musicv.wedeploy.io');  
+
+    var currentUser = auth.currentUser;
 
     $('#chatbot-send').on('click', function(event){
-        socket.emit('chat message', $('#chatbot-input').val());
-        $('#chatbot-input').val('');
+        //socket.emit('chat message', $('#chatbot-input').val());
+        //$('#chatbot-input').val('');
         return false;
     });
     socket.on('people connected', function(num){
@@ -43,7 +46,7 @@ $(function () {
     });
 
     socket.on('chat message', function(msg){
-        if(msg !== myMsg){
+        if(msg.text !== myMsg){
            printMessage(msg);  
         }
     });
@@ -58,9 +61,13 @@ $(function () {
         var chat = $('#chatbot .chat');
         var html = '<div class="message-block"><p class="message in"><span>' + val + '</span></p></div>';
 
+        var d = new Date();
         myMsg = val;
-        socket.emit('chat message', val);
-
+        var message = new Object();
+        message.text = val;
+        message.time = d.getHours() + ":"+ d.getMinutes();
+        message.auth = currentUser.name;
+        socket.emit('chat message', message);
 
 
 
@@ -90,65 +97,11 @@ $(function () {
     function printMessage(mensagem){
         $('#chatbot .message-waiting').stop().hide();
 
-        var html = '<div class="message-block"><p class="message out"><span>' + mensagem + '</span></p></div>';
+        var html = '<div class="message-block"><p class="message out"><span>' + mensagem.text + '</span><span>' + mensagem.time + '</span><span>' + mensagem.auth + '</span></p></div>';
         $(html).insertBefore($('#chatbot .chat-wrapper .message-waiting'));
 
     }
 
-    function sendResponse(val){
-
-        var mensagem = '';
-
-        var split = val.toLowerCase().split(' ');
-
-            if( ($.inArray('mudar', split) > -1  ||
-                $.inArray('alterar', split) > -1||
-                $.inArray('mudança', split) > -1||
-                $.inArray('mudanca', split) > -1||
-                $.inArray('alteração', split) > -1||
-                $.inArray('alteracao', split) > -1||
-                $.inArray('alteracão', split) > -1||
-                $.inArray('alteraçao', split) > -1 ) &&
-                $.isArray('morada', split) > -1 ){
-
-                if (typeof chat3 !== 'undefined')chat3.play();
-
-                $('#chatbot .message-waiting').stop().fadeIn(); 
-                var element = $(".chat");
-                element[0].scrollTop = element[0].scrollHeight;
-                setTimeout(function(){ 
-                    printMessage('Alterar a morada no cartão de cidadão é um processo rápido e simples, com apenas 3 passos.');
-                    var element = $(".chat");
-                    element[0].scrollTop = element[0].scrollHeight; 
-                    $('#chatbot .message-waiting').stop().fadeIn();
-                    var element = $(".chat");
-                    element[0].scrollTop = element[0].scrollHeight;
-                    setTimeout(function(){  
-                        printMessage('Escolha uma das opções:'); 
-                        var element = $(".chat");
-                        element[0].scrollTop = element[0].scrollHeight;
-                        setTimeout(function(){  
-                            var html = '<a href="./alteracao-morada.html" class="search-bubble">Alteração da minha morada</a><a href="./alteracao-morada.html" class="search-bubble">Alteração da morada por terceiros</a>';
-                            $(html).insertBefore($('#chatbot .chat-wrapper .message-waiting'));
-                            var element = $(".chat");
-                            element[0].scrollTop = element[0].scrollHeight;
-                        },500);
-                    },2000);
-                },2000);
-                
-
-            } else {
-                $('#chatbot .message-waiting').stop().fadeIn(); 
-                var element = $(".chat");
-                element[0].scrollTop = element[0].scrollHeight;
-                setTimeout(function(){ 
-                    printMessage('Não percebi, pode explicar-me por outras palavras?');
-                    var element = $(".chat");
-                    element[0].scrollTop = element[0].scrollHeight;
-                },3000);
-            }
-
-    }
 
 
   });
