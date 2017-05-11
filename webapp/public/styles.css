@@ -49,7 +49,7 @@
         margin: 2px 0;
     }
 
-.chatbot .message span {
+.chatbot .message {
             padding: 8px 12px;
             line-height: 20px;
             display: inline-block;
