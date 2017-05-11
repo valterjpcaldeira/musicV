@@ -268,3 +268,19 @@ a:focus, a:hover {
   color: #4f5b66;
 }
 
+.time {
+    font-size: 8px;
+    position: relative;
+    bottom: -12px;
+    color: rgb(99, 113, 127);
+    left: -8px;
+}
+
+.auth {
+    font-size: 10px;
+    position: relative;
+    bottom: 12px;
+    left: -25px;
+    color: rgb(99, 113, 127);
+}
+
