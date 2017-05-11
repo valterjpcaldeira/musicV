@@ -58,8 +58,8 @@
         }
 
 .chatbot .message.in { text-align: right; }
-.chatbot .message.in span { background-color: #FFFFFF; color: #333; }
-.chatbot .message.out span { background-color: #A5A5A5; color: #fff; }
+.chatbot .message.in { background-color: #FFFFFF; color: #333; }
+.chatbot .message.out { background-color: #A5A5A5; color: #fff; }
 
 .chatbot .message.out a {color:#fff}
 .chatbot .message.in a {color:#888}

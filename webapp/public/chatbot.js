@@ -97,7 +97,7 @@ $(function () {
     function printMessage(mensagem){
         $('#chatbot .message-waiting').stop().hide();
 
-        var html = '<div class="message-block"><p class="message out"><span>' + mensagem.text + '</span><span>' + mensagem.time + '</span><span>' + mensagem.auth + '</span></p></div>';
+        var html = '<div class="message-block"><div class="message out"><span>' + mensagem.text + '</span><span>' + mensagem.time + '</span><span>' + mensagem.auth + '</span></div></div>';
         $(html).insertBefore($('#chatbot .chat-wrapper .message-waiting'));
 
     }
