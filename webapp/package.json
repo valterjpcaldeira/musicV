@@ -11,8 +11,6 @@
     "morgan": "latest",
     "youtube-node": "latest",
     "serve-favicon" : "latest",
-    "wedeploy-middleware" : "latest",
-    "wedeploy" : "latest",
     "socket.io" : "latest"
   }
 }
