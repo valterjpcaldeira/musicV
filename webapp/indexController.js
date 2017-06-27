@@ -1,3 +1,4 @@
+var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var app = require('express')();
@@ -6,7 +7,7 @@ var io = require('socket.io')(http);
 var numUsers = 0;
 
 //CONFIG
-app.use(app.static('public'));
+app.use(express.static('public'));
 app.use(favicon(__dirname + '/public/images/like.ico'));
 //app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io'}));
 
