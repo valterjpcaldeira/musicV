@@ -1,20 +1,14 @@
-var express = require('express');
-//var morgan = require('morgan');
 var path = require('path');
 var favicon = require('serve-favicon');
-//var wedeployMiddleware = require('wedeploy-middleware');
-//var WeDeploy = require('wedeploy');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var numUsers = 0;
 
-
 //CONFIG
-app.use(express.static('public'));
+app.use(app.static('public'));
 app.use(favicon(__dirname + '/public/images/like.ico'));
 //app.use(wedeployMiddleware.auth({url: 'auth.musicv.wedeploy.io'}));
-
 
 /////////PUBLIC
 //LOGIN
