@@ -284,3 +284,8 @@ a:focus, a:hover {
     color: rgb(99, 113, 127);
 }
 
+.out {
+    font-size: 15px;
+    margin: 0px 99px;
+}
+

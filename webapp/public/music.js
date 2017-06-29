@@ -162,6 +162,7 @@ function appendVideo(tasks) {
 				  .limit(1)
 				  .get('youtubeLinks')
 					.then(function(response) {
+						console.log(response);
 						next(response);
 					})
 					.catch(function(error) {
