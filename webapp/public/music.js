@@ -6,6 +6,8 @@ var currentImage;
 var currentTitle;
 var currentDesc;
 var currentBy;
+var array = [];
+
 function loadTabMusic(){
 
 	if(!player){
@@ -20,7 +22,23 @@ function loadTabMusic(){
 		.catch(function(error) {
 			console.error(error);
 		});
+
+
+
+    	WeDeploy.data('http://data.musicv.wedeploy.io')
+    			.where('state', '=', 1)
+				  .orderBy('likes', 'desc')
+				  .limit(8)
+				  .get('youtubeLinks')
+					.then(function(response) {
+						array.push(response);
+					})
+					.catch(function(error) {
+						console.error(error);
+					});
 	}
+
+
 
 }
 /*
@@ -147,8 +165,13 @@ function appendVideo(tasks) {
 						next(response);
 					})
 					.catch(function(error) {
-						console.error(error);
+						playRandom();
 					});
+    }
+
+    function playRandom(){
+    	var ra = Math.floor((Math.random() * 8) + 1);
+    	next(array[ra]);
     }
 
     function pauseMusic(){

@@ -26,7 +26,6 @@ $(function () {
             $('#chatbot-trigger').addClass("chatClosed");
             $chatbot.stop().fadeOut(function(){
                 $(this).removeClass('open');
-                $(".message-block").remove();
             });
         } else {
             $('#chatbot-trigger').find("i").addClass("crossIcon");
