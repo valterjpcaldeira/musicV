@@ -93,18 +93,6 @@ function appendVideo(tasks) {
 				  .limit(8)
 				  .get('youtubeLinks')
 					.then(function(response) {
-						player = new YT.Player('player', {
-				          height: '390',
-				          width: '640',
-				          videoId: videoCode,
-				          controls: 0,
-				          disablekb: 1,
-				          events: {
-				            'onReady': onPlayerReady,
-				            'onStateChange': onPlayerStateChange,
-				            'onError': onError
-				          }
-				        });
 						playRandom(response);
 					});
 		}
@@ -218,8 +206,22 @@ function appendVideo(tasks) {
 		$(".likeMusic").attr("likes", currentLikes);
 		$(".likeMusic").attr("by", currentBy);
 
-
-		player.loadVideoById(videoCode);
+		if(!player){
+			player = new YT.Player('player', {
+				          height: '390',
+				          width: '640',
+				          videoId: videoCode,
+				          controls: 0,
+				          disablekb: 1,
+				          events: {
+				            'onReady': onPlayerReady,
+				            'onStateChange': onPlayerStateChange,
+				            'onError': onError
+				          }
+				        });
+		}else{
+			player.loadVideoById(videoCode);
+		}
     }
 
     function pauseMusic(){
