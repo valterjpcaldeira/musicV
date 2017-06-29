@@ -48,7 +48,7 @@ WeDeploy
 
 		console.log("tasks:");
 		console.log(tasks);
-		if(!tasks){
+		if(tasks.length === 0){
 			WeDeploy.data('http://data.musicv.wedeploy.io')
     			.where('state', '=', 1)
 				  .orderBy('likes', 'desc')
@@ -87,9 +87,8 @@ WeDeploy
 
 function appendVideo(tasks) {
 
-	console.log("tasks:");
-		console.log(tasks);
-		if(!tasks){
+
+		if(tasks.length === 0){
 			WeDeploy.data('http://data.musicv.wedeploy.io')
     			.where('state', '=', 1)
 				  .orderBy('likes', 'desc')
