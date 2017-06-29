@@ -25,17 +25,7 @@ function loadTabMusic(){
 
 
 
-    	WeDeploy.data('http://data.musicv.wedeploy.io')
-    			.where('state', '=', 1)
-				  .orderBy('likes', 'desc')
-				  .limit(8)
-				  .get('youtubeLinks')
-					.then(function(response) {
-						array.push(response);
-					})
-					.catch(function(error) {
-						console.error(error);
-					});
+    	
 	}
 
 
@@ -55,6 +45,19 @@ WeDeploy
 	//player.loadVideoById(videoId);
 
 	function next(tasks){
+
+		console.log("tasks:");
+		console.log(tasks);
+		if(!tasks){
+			WeDeploy.data('http://data.musicv.wedeploy.io')
+    			.where('state', '=', 1)
+				  .orderBy('likes', 'desc')
+				  .limit(8)
+				  .get('youtubeLinks')
+					.then(function(response) {
+						playRandom(response);
+					});
+		}
 
 	tasks.forEach(function(task) {
 		currentVideoId = task.url;
@@ -83,6 +86,19 @@ WeDeploy
 
 
 function appendVideo(tasks) {
+
+	console.log("tasks:");
+		console.log(tasks);
+		if(!tasks){
+			WeDeploy.data('http://data.musicv.wedeploy.io')
+    			.where('state', '=', 1)
+				  .orderBy('likes', 'desc')
+				  .limit(8)
+				  .get('youtubeLinks')
+					.then(function(response) {
+						playRandom(response);
+					});
+		}
 
 	tasks.forEach(function(task) {
 		 currentVideoId = task.url;
@@ -170,9 +186,29 @@ function appendVideo(tasks) {
 					});
     }
 
-    function playRandom(){
-    	var ra = Math.floor((Math.random() * 8) + 1);
-    	next(array[ra]);
+    function playRandom(tasks){
+    	var ra = Math.floor((Math.random() * tasks.length) + 1);
+    	var task = tasks[ra];
+    	currentVideoId = task.url;
+		 currentLikes= task.likes;
+		 currentImage = task.urlThumbnill;
+		 currentTitle = task.title;
+		 currentDesc = task.description;
+		var videoCode = task.url;
+		currentId = task.id;
+		currentBy = task.by;
+
+		$(".likeMusic").parent().attr("data-badge", currentLikes);
+		$(".likeMusic").attr("playedDate", task.playedDate);
+		$(".likeMusic").attr("id", currentId);
+		$(".likeMusic").attr("description", currentDesc);
+		$(".likeMusic").attr("title", currentTitle);
+		$(".likeMusic").attr("urlThumbnill", currentImage);
+		$(".likeMusic").attr("likes", currentLikes);
+		$(".likeMusic").attr("by", currentBy);
+
+
+		player.loadVideoById(videoCode);
     }
 
     function pauseMusic(){
