@@ -186,8 +186,10 @@ function appendVideo(tasks) {
     }
 
     function playRandom(tasks){
-    	var ra = Math.floor((Math.random() * tasks.length) + 1);
+    	var ra = Math.floor((Math.random() * tasks.length));
+    	console.log(ra);
     	var task = tasks[ra];
+    	console.log(task);
     	currentVideoId = task.url;
 		 currentLikes= task.likes;
 		 currentImage = task.urlThumbnill;
