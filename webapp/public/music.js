@@ -50,7 +50,6 @@ WeDeploy
 		console.log(tasks);
 		if(tasks.length === 0){
 			WeDeploy.data('http://data.musicv.wedeploy.io')
-    			.where('state', '=', 1)
 				  .orderBy('likes', 'desc')
 				  .limit(8)
 				  .get('youtubeLinks')
@@ -90,7 +89,6 @@ function appendVideo(tasks) {
 
 		if(tasks.length === 0){
 			WeDeploy.data('http://data.musicv.wedeploy.io')
-    			.where('state', '=', 1)
 				  .orderBy('likes', 'desc')
 				  .limit(8)
 				  .get('youtubeLinks')
@@ -181,13 +179,13 @@ function appendVideo(tasks) {
 						next(response);
 					})
 					.catch(function(error) {
-						playRandom();
 					});
     }
 
     function playRandom(tasks){
     	var ra = Math.floor((Math.random() * tasks.length));
     	console.log(ra);
+    	console.log(tasks);
     	var task = tasks[ra];
     	console.log(task);
     	currentVideoId = task.url;
