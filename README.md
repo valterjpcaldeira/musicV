@@ -27,7 +27,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* I thank to Fipa by the patiente with me
+* I thank to Fipa by the patience with me
 * I did this project because i want to learn how to use nodejs and develop my frontend capacities
 * Now I use this at all projects I am.
 
