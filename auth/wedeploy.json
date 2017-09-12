@@ -1,3 +1,12 @@
 {
-    "id": "auth"
+    "id": "auth",
+    "image": "wedeploy/auth:0.0.1",
+    "env": { 
+	    "WEDEPLOY_AUTH_FACEBOOK": "true", 
+	    "WEDEPLOY_AUTH_FACEBOOK_CLIENT_ID": "1209604419094908", 
+	    "WEDEPLOY_AUTH_FACEBOOK_CLIENT_SECRET": "a050fed61c6d66ddb7e47a87321b816b", 
+	    "WEDEPLOY_AUTH_GOOGLE": "true",   
+	    "WEDEPLOY_AUTH_GOOGLE_CLIENT_ID": "491570814882-etbh3sch3uvfraqc7c0platlibdvuskt.apps.googleusercontent.com", 
+	    "WEDEPLOY_AUTH_GOOGLE_CLIENT_SECRET": "mn-VEyLUc-DWVbwd7zN9NBTB" 
+    } 
 }
