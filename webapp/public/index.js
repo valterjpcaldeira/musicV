@@ -2,7 +2,7 @@ $(function () {
 
 	var form = document.querySelector('#form'); 
 	var list = document.querySelector('.list'); 
-	var auth = WeDeploy.auth('auth.musicv.wedeploy.io');  
+	var auth = WeDeploy.auth('auth-musicv.wedeploy.io');  
 
 	var currentUser = auth.currentUser;
 
@@ -15,7 +15,7 @@ $(function () {
 		console.log("not logged in");
 	   $("#userNameAbrev").text("A");
 	   $("#userName").text("Anonimus");
-	   window.location.replace("http://musicv.wedeploy.io/login");
+	   window.location.replace("http://nodejs-musicv.wedeploy.io/login");
 	}
 
 	$("#search").keypress(function(e) {
@@ -66,7 +66,7 @@ function search(){
 function addThis(elm){
 	list.innerHTML = "";
 	startLoading();
-	WeDeploy.data('http://data.musicv.wedeploy.io')
+	WeDeploy.data('http://database-musicv.wedeploy.io')
     .create('youtubeLinks', {url: $(elm).attr('value'),
 							 urlThumbnill: $(elm).attr('urlThumbnill'),
 							 description: $(elm).attr('description'),

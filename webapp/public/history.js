@@ -1,6 +1,6 @@
 function loadTabHis(){
 
-WeDeploy.data('http://data.musicv.wedeploy.io')
+WeDeploy.data('http://database-musicv.wedeploy.io')
   .where('state', '=', 0)
   .orderBy('id', 'desc')
   .limit(15)
@@ -12,7 +12,7 @@ WeDeploy.data('http://data.musicv.wedeploy.io')
 		console.log(error);
 	});
 
-	WeDeploy.data('http://data.musicv.wedeploy.io')
+	WeDeploy.data('http://database-musicv.wedeploy.io')
   .where('state', '=', 0)
   .orderBy('id', 'desc')
   .offset(50)
@@ -80,7 +80,7 @@ function appendHis(tasks) {
 }
 
 function deleteHis(tasks) {
-	var data = WeDeploy.data('http://data.musicv.wedeploy.io');
+	var data = WeDeploy.data('http://database-musicv.wedeploy.io');
 	tasks.forEach(function(task) {
 		 data.delete('youtubeLinks/'+task.id);
 	});

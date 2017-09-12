@@ -1,6 +1,6 @@
 function loadTabTop(){
 
-WeDeploy.data('http://data.musicv.wedeploy.io')
+WeDeploy.data('http://database-musicv.wedeploy.io')
   .orderBy('likes', 'desc')
   .limit(10)
   .get('youtubeLinks')
@@ -54,7 +54,7 @@ function appendTop(tasks) {
                     		'</div>'+
                     		'<div class="mdl-cell mdl-cell--2-col">'+
                     			'<div class="mdl-badge mdl-badge--overlap" data-badge="'+task.likes+'" style="width: 40px;">'+
-							    	'<img style="width: 38px;cursor:pointer;" src="http://musicv.wedeploy.io/images/like.png" border="0" alt="">'+
+							    	'<img style="width: 38px;cursor:pointer;" src="http://nodejs-musicv.wedeploy.io/images/like.png" border="0" alt="">'+
 							    '</div>'+
                     		'</div>'+
                     	'</div>'+

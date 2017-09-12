@@ -2,7 +2,7 @@ $(function () {
 
     var socket = io();
     var myMsg = "";
-    var auth = WeDeploy.auth('auth.musicv.wedeploy.io');  
+    var auth = WeDeploy.auth('auth-musicv.wedeploy.io');  
 
     var currentUser = auth.currentUser;
 

@@ -1,6 +1,6 @@
 function loadTabLis(){
 
-WeDeploy.data('http://data.musicv.wedeploy.io')
+WeDeploy.data('http://database-musicv.wedeploy.io')
   .where('state', '=', 1)
   .orderBy('id', 'asc')
   .limit(24)
@@ -88,7 +88,7 @@ function addLike(elm){
 
 	$(elm).parent().attr("data-badge", Number($(elm).attr('likes'))+1);
 
-	var data = WeDeploy.data('http://data.musicv.wedeploy.io');
+	var data = WeDeploy.data('http://database-musicv.wedeploy.io');
 	            data.update('youtubeLinks/'+$(elm).attr('id'), {url: $(elm).attr('value'),
 							 urlThumbnill: $(elm).attr('urlThumbnill'),
 							 description: $(elm).attr('description'),
