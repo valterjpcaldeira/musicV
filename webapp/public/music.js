@@ -11,7 +11,7 @@ var array = [];
 function loadTabMusic(){
 
 	if(!player){
-		WeDeploy.data('http://database-musicv.wedeploy.io')
+		WeDeploy.data('https://database-musicv.wedeploy.io')
 		.where('state', '=', 1)
 	  .orderBy('id', 'asc')
 	  .limit(1)
@@ -49,7 +49,7 @@ WeDeploy
 		console.log("tasks:");
 		console.log(tasks);
 		if(tasks.length === 0){
-			WeDeploy.data('http://database-musicv.wedeploy.io')
+			WeDeploy.data('https://database-musicv.wedeploy.io')
 				  .orderBy('likes', 'desc')
 				  .limit(8)
 				  .get('youtubeLinks')
@@ -88,7 +88,7 @@ function appendVideo(tasks) {
 
 
 		if(tasks.length === 0){
-			WeDeploy.data('http://database-musicv.wedeploy.io')
+			WeDeploy.data('https://database-musicv.wedeploy.io')
 				  .orderBy('likes', 'desc')
 				  .limit(8)
 				  .get('youtubeLinks')
@@ -135,7 +135,7 @@ function appendVideo(tasks) {
 
 // autoplay video
     function onError(event) {
-        var data = WeDeploy.data('http://database-musicv.wedeploy.io');
+        var data = WeDeploy.data('https://database-musicv.wedeploy.io');
             data.delete('youtubeLinks/'+currentId);
 
             playNext();
@@ -169,7 +169,7 @@ function appendVideo(tasks) {
     }
 
     function playNext(){
-    	WeDeploy.data('http://database-musicv.wedeploy.io')
+    	WeDeploy.data('https://database-musicv.wedeploy.io')
     			.where('state', '=', 1)
 				  .orderBy('id', 'asc')
 				  .limit(1)
