@@ -5,8 +5,8 @@
   <title>Sign In</title>
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <script src="http://cdn.wedeploy.com/api/latest/wedeploy.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <script src="https://cdn.wedeploy.com/api/2.3.1/wedeploy.js"></script>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
       </div>
 
   <script>
-    var auth = WeDeploy.auth('auth.musicv.wedeploy.io');
+    var auth = WeDeploy.auth('auth-musicv.wedeploy.io');
 
 
     function facbeook(){
@@ -47,7 +47,7 @@
     }
     
     auth.onSignIn(function(user) {
-			window.location = "http://musicv.wedeploy.io";
+			window.location = "http://nodejs-musicv.wedeploy.io";
 		});
 
   </script>
