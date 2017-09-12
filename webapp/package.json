@@ -1,10 +1,8 @@
 {
-  "name": "testeee-nodejs",
-  "version": "1.0.0",
   "description": "A boilerplate that demonstrates the Node.js container",
-  "main": "indexController.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node indexController.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "express": "latest",
