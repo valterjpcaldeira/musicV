@@ -6,7 +6,7 @@
 
 A kind of radio! People chosse what it play in this radio
 
-[Visit the site](http://musicv.wedeploy.io/) and try for yourself
+[Visit the site](https://nodejs-musicv.wedeploy.io) and try for yourself
 
 
 ## Built With
