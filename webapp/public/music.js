@@ -149,7 +149,7 @@ function appendVideo(tasks) {
     // when video ends
     function onPlayerStateChange(event) {        
         if(event.data === 0) {            
-            var data = WeDeploy.data('http://database-musicv.wedeploy.io');
+            var data = WeDeploy.data('https://database-musicv.wedeploy.io');
             var today = new Date();
 			var hr = today.getHours();
 			var min = today.getMinutes();
