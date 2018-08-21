@@ -43,7 +43,7 @@ app.get('/search/:tagId', function (req, res) {
 //});
 //app.use(wedeployMiddleware.auth({url: 'auth.project.wedeploy.io'}));
 app.get('/', function (req, res, next) {
-	console.log('User: ', res.locals.auth.currentUser);
+	//console.log('User: ', res.locals.auth.currentUser);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
 
