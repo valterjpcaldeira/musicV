@@ -43,7 +43,7 @@ app.get('/search/:tagId', function (req, res) {
 //});
 //app.use(wedeployMiddleware.auth({url: 'auth.project.wedeploy.io'}));
 app.get('/', function (req, res, next) {
-	//console.log('User: ', res.locals.auth.currentUser);
+	console.log('User: ', res.locals.auth.currentUser);
 	res.sendFile(path.join(__dirname + '/private/index.html'));
 });
 
@@ -64,4 +64,3 @@ io.on('connection', function(socket){
 http.listen(80, function(){
   console.log('listening on *:80');
 });
-

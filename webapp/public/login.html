@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <script src="https://cdn.wedeploy.com/api/2.3.1/wedeploy.js"></script>
+  <script src="https://cdn.wedeploy.com/api/4.5.0/wedeploy.js"></script>
 </head>
 <body>
 
@@ -35,7 +35,7 @@
     function facbeook(){
 
       var provider = new auth.provider.Facebook();
-      
+
       provider.setProviderScope("email");
       auth.signInWithRedirect(provider);
     }
@@ -45,7 +45,7 @@
       googleProvider.setProviderScope('email');
       auth.signInWithRedirect(googleProvider);
     }
-    
+
     auth.onSignIn(function(user) {
 			window.location = "https://nodejs-musicv.wedeploy.io";
 		});
